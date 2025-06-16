@@ -11,19 +11,19 @@ tags:
   - name: Block routes
   - name: Chain routes
   - name: Finalization routes
-  - name: Metadata routes
-  - name: Mosaic routes
-  - name: Multisig routes
-  - name: Namespace routes
   - name: Network routes
   - name: Node routes
-  - name: Restriction Account routes
-  - name: Restriction Mosaic routes
-  - name: Receipt routes
   - name: Transaction routes
   - name: Transaction status routes
   - name: Hash Lock routes
   - name: Secret Lock routes
+  - name: Metadata routes
+  - name: Mosaic routes
+  - name: Multisig routes
+  - name: Namespace routes
+  - name: Receipt routes
+  - name: Restriction Account routes
+  - name: Restriction Mosaic routes
 paths:
   /account/{address}/multisig:
     get:
@@ -2267,10 +2267,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         maxFee:
           $ref: '#/components/schemas/Amount'
         deadline:
@@ -2339,6 +2341,7 @@ components:
         id:
           type: string
           description: Internal resource identifier.
+          example: 65204AB4242726662686A453
         account:
           $ref: '#/components/schemas/AccountDTO'
     AccountKeyLinkNetworkPropertiesDTO:
@@ -2347,6 +2350,7 @@ components:
         dummy:
           type: string
           description: to trigger plugin load
+          example: 'true'
     AccountKeyLinkTransactionDTO:
       type: object
       required:
@@ -2372,10 +2376,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         maxFee:
           $ref: '#/components/schemas/Amount'
         deadline:
@@ -2394,6 +2400,7 @@ components:
       properties:
         publicKey:
           type: string
+          example: AC1A6E1D8DE5B17D2C6B1293F1E3BE85A6493C8C3971E7A09471384B966E442D
     AccountLinkVotingKeyDTO:
       type: object
       required:
@@ -2403,6 +2410,7 @@ components:
       properties:
         publicKey:
           type: string
+          example: AC1A6E1D8DE5B17D2C6B1293F1E3BE85A6493C8C3971E7A09471384B966E442D
         startEpoch:
           $ref: '#/components/schemas/FinalizationEpoch'
         endEpoch:
@@ -2444,10 +2452,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         maxFee:
           $ref: '#/components/schemas/Amount'
         deadline:
@@ -2492,10 +2502,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         maxFee:
           $ref: '#/components/schemas/Amount'
         deadline:
@@ -2552,10 +2564,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         maxFee:
           $ref: '#/components/schemas/Amount'
         deadline:
@@ -2588,7 +2602,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AccountInfoDTO'
-          description: Array of accounts.
         pagination:
           $ref: '#/components/schemas/Pagination'
     AccountRestrictionDTO:
@@ -2666,7 +2679,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AccountRestrictionsInfoDTO'
-          description: Array of account restrictions.
         pagination:
           $ref: '#/components/schemas/Pagination'
     AccountTypeEnum:
@@ -2719,7 +2731,9 @@ components:
         Each bucket influences at most five importance recalculations.
     Address:
       type: string
+      maxLength: 48
       description: Address encoded using a 32-character set.
+      example: 9889432DE263BB8FE88444A4DA28D3609BD8BB8FAE18AE95
     AddressAliasTransactionDTO:
       type: object
       required:
@@ -2746,10 +2760,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         maxFee:
           $ref: '#/components/schemas/Amount'
         deadline:
@@ -2767,18 +2783,23 @@ components:
         maxTransactionsPerAggregate:
           type: string
           description: Maximum number of transactions per aggregate.
+          example: '100'
         maxCosignaturesPerAggregate:
           type: string
           description: Maximum number of cosignatures per aggregate.
+          example: '25'
         enableStrictCosignatureCheck:
           type: boolean
           description: Set to true if cosignatures must exactly match component signers. Set to false if cosignatures should be validated externally.
+          example: true
         enableBondedAggregateSupport:
           type: boolean
           description: Set to true if bonded aggregates should be allowed. Set to false if bonded aggregates should be rejected.
+          example: true
         maxBondedTransactionLifetime:
           type: string
           description: Maximum lifetime a bonded transaction can have before it expires.
+          example: 48h
     AggregateTransactionDTO:
       type: object
       required:
@@ -2804,10 +2825,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         maxFee:
           $ref: '#/components/schemas/Amount'
         deadline:
@@ -2846,10 +2869,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         maxFee:
           $ref: '#/components/schemas/Amount'
         deadline:
@@ -2901,6 +2926,7 @@ components:
     Amount:
       type: string
       description: Absolute amount. An amount of 123456789 (absolute) for a mosaic with divisibility 6 means 123.456789 (relative).
+      example: '0'
     AnnounceTransactionInfoDTO:
       type: object
       required:
@@ -2986,10 +3012,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         height:
           $ref: '#/components/schemas/Height'
         timestamp:
@@ -3017,10 +3045,12 @@ components:
     BlockDuration:
       type: string
       description: Duration expressed in number of blocks.
+      example: '100'
     BlockFeeMultiplier:
       type: integer
       format: int64
       description: Fee multiplier applied to transactions contained in block.
+      example: 0
     BlockInfoDTO:
       type: object
       required:
@@ -3031,6 +3061,7 @@ components:
         id:
           type: string
           description: Internal resource identifier.
+          example: 67CA9E5B1F221298E20D97CB
         meta:
           $ref: '#/components/schemas/BlockMetaDTO'
         block:
@@ -3091,7 +3122,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/BlockInfoDTO'
-          description: Array of blocks.
         pagination:
           $ref: '#/components/schemas/Pagination'
     BmTreeSignature:
@@ -3126,88 +3156,116 @@ components:
         enableVerifiableState:
           type: boolean
           description: Set to true if block chain should calculate state hashes so that state is fully verifiable at each block.
+          example: true
         enableVerifiableReceipts:
           type: boolean
           description: Set to true if block chain should calculate receipts so that state changes are fully verifiable at each block.
+          example: true
         currencyMosaicId:
           type: string
           description: Mosaic id used as primary chain currency.
+          example: '0x243FE287A5239A55'
         harvestingMosaicId:
           type: string
           description: Mosaic id used to provide harvesting ability.
+          example: '0x243FE287A5239A55'
         blockGenerationTargetTime:
           type: string
           description: Targeted time between blocks.
+          example: 30s
         blockTimeSmoothingFactor:
           type: string
           description: A higher value makes the network more biased.
+          example: '500'
         blockFinalizationInterval:
           type: string
           description: Number of blocks between successive finalization attempts.
+          example: '20'
         importanceGrouping:
           type: string
           description: Number of blocks that should be treated as a group for importance purposes.
+          example: '39'
         importanceActivityPercentage:
           type: string
           description: Percentage of importance resulting from fee generation and beneficiary usage.
+          example: '5'
         maxRollbackBlocks:
           type: string
           description: Maximum number of blocks that can be rolled back.
+          example: '40'
         maxDifficultyBlocks:
           type: string
           description: Maximum number of blocks to use in a difficulty calculation.
+          example: '60'
         defaultDynamicFeeMultiplier:
           type: string
           description: Default multiplier to use for dynamic fees.
+          example: '100'
         maxTransactionLifetime:
           type: string
           description: Maximum lifetime a transaction can have before it expires.
+          example: 24h
         maxBlockFutureTime:
           type: string
           description: Maximum future time of a block that can be accepted.
+          example: 500ms
         initialCurrencyAtomicUnits:
           type: string
           description: Initial currency atomic units available in the network.
+          example: 8'998'999'998'000'000
         maxMosaicAtomicUnits:
           type: string
           description: Maximum atomic units (total-supply * 10 ^ divisibility) of a mosaic allowed in the network.
+          example: 9'000'000'000'000'000
         totalChainImportance:
           type: string
           description: Total whole importance units available in the network.
+          example: 15'000'000
         minHarvesterBalance:
           type: string
           description: Minimum number of harvesting mosaic atomic units needed for an account to be eligible for harvesting.
+          example: '500'
         maxHarvesterBalance:
           type: string
           description: Maximum number of harvesting mosaic atomic units needed for an account to be eligible for harvesting.
+          example: 4'000'000'000
         minVoterBalance:
           type: string
           description: Minimum number of harvesting mosaic atomic units needed for an account to be eligible for voting.
+          example: 50'000
         maxVotingKeysPerAccount:
           type: string
           description: Maximum number of voting keys that can be registered at once per account.
+          example: '3'
         minVotingKeyLifetime:
           type: string
           description: Minimum number of finalization rounds for which voting key can be registered.
+          example: '20'
         maxVotingKeyLifetime:
           type: string
           description: Maximum number of finalization rounds for which voting key can be registered.
+          example: '260'
         harvestBeneficiaryPercentage:
           type: string
           description: Percentage of the harvested fee that is collected by the beneficiary account.
+          example: '10'
         harvestNetworkPercentage:
           type: string
           description: Percentage of the harvested fee that is collected by the network.
+          example: '5'
         harvestNetworkFeeSinkAddress:
           allOf:
             - $ref: '#/components/schemas/Address'
           description: Address of the harvest network fee sink account.
+          example: TAMESPACEWH4MKFMBCVFERDPOOP4FK7MTDJEYP35
         blockPruneInterval:
           type: string
           description: Number of blocks between cache pruning.
+          example: '100'
         maxTransactionsPerBlock:
           type: string
           description: Maximum number of transactions per block.
+          example: '1000'
       description: Chain related configuration properties.
     CommunicationTimestampsDTO:
       type: object
@@ -3232,6 +3290,36 @@ components:
     CosignatureVersion:
       type: string
       description: Cosignature version.
+      example: '0'
+    DatabaseDTO:
+      type: object
+      required:
+        - numIndexes
+        - numObjects
+        - dataSize
+        - indexSize
+        - storageSize
+      properties:
+        numIndexes:
+          type: number
+          enum:
+            - 76
+        numObjects:
+          type: number
+          enum:
+            - 7328577
+        dataSize:
+          type: number
+          enum:
+            - 7129099034
+        indexSize:
+          type: number
+          enum:
+            - 550572032
+        storageSize:
+          type: number
+          enum:
+            - 3327238144
     DeploymentDTO:
       type: object
       required:
@@ -3242,15 +3330,19 @@ components:
         deploymentTool:
           type: string
           description: 'The tool used to create, maintain and deploy the node. Examples: symbol-bootstrap, manual.'
+          example: symbol-bootstrap
         deploymentToolVersion:
           type: string
           description: The version of the tool used to create, maintain and deploy the node.
+          example: 1.1.11
         lastUpdatedDate:
           type: string
           description: When was the node last upgraded.
+          example: '2025-03-11'
     Difficulty:
       type: string
       description: Determines how hard is to harvest a new block, based on previous blocks.
+      example: '100000000000000'
     EmbeddedAccountAddressRestrictionTransactionDTO:
       type: object
       required:
@@ -3267,10 +3359,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         restrictionFlags:
           $ref: '#/components/schemas/AccountRestrictionFlagsEnum'
         restrictionAdditions:
@@ -3298,10 +3392,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         linkedPublicKey:
           $ref: '#/components/schemas/PublicKey'
         linkAction:
@@ -3324,10 +3420,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         targetAddress:
           $ref: '#/components/schemas/UnresolvedAddress'
         scopedMetadataKey:
@@ -3357,10 +3455,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         restrictionFlags:
           $ref: '#/components/schemas/AccountRestrictionFlagsEnum'
         restrictionAdditions:
@@ -3389,10 +3489,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         restrictionFlags:
           $ref: '#/components/schemas/AccountRestrictionFlagsEnum'
         restrictionAdditions:
@@ -3421,10 +3523,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         namespaceId:
           $ref: '#/components/schemas/NamespaceId'
         address:
@@ -3448,10 +3552,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         mosaicId:
           $ref: '#/components/schemas/UnresolvedMosaicId'
         amount:
@@ -3478,10 +3584,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         mosaicId:
           $ref: '#/components/schemas/UnresolvedMosaicId'
         restrictionKey:
@@ -3508,10 +3616,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         namespaceId:
           $ref: '#/components/schemas/NamespaceId'
         mosaicId:
@@ -3536,10 +3646,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         id:
           $ref: '#/components/schemas/MosaicId'
         duration:
@@ -3576,10 +3688,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         mosaicId:
           $ref: '#/components/schemas/UnresolvedMosaicId'
         referenceMosaicId:
@@ -3613,10 +3727,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         targetAddress:
           $ref: '#/components/schemas/UnresolvedAddress'
         scopedMetadataKey:
@@ -3648,10 +3764,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         mosaicId:
           $ref: '#/components/schemas/UnresolvedMosaicId'
         delta:
@@ -3674,10 +3792,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         sourceAddress:
           $ref: '#/components/schemas/UnresolvedAddress'
         mosaicId:
@@ -3701,10 +3821,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         minRemovalDelta:
           type: integer
           description: |-
@@ -3743,10 +3865,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         targetAddress:
           $ref: '#/components/schemas/UnresolvedAddress'
         scopedMetadataKey:
@@ -3778,10 +3902,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         duration:
           $ref: '#/components/schemas/BlockDuration'
         parentId:
@@ -3808,10 +3934,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         linkedPublicKey:
           $ref: '#/components/schemas/PublicKey'
         linkAction:
@@ -3835,10 +3963,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         recipientAddress:
           $ref: '#/components/schemas/UnresolvedAddress'
         secret:
@@ -3868,10 +3998,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         recipientAddress:
           $ref: '#/components/schemas/UnresolvedAddress'
         secret:
@@ -3955,10 +4087,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         recipientAddress:
           $ref: '#/components/schemas/UnresolvedAddress'
         mosaics:
@@ -3986,10 +4120,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         linkedPublicKey:
           $ref: '#/components/schemas/VotingKey'
         startEpoch:
@@ -4013,10 +4149,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         linkedPublicKey:
           $ref: '#/components/schemas/PublicKey'
         linkAction:
@@ -4025,10 +4163,12 @@ components:
       type: integer
       format: int64
       description: Finalization Epoch
+      example: 1
     FinalizationPoint:
       type: integer
       format: int64
       description: Finalization point
+      example: 1
     FinalizationProofDTO:
       type: object
       required:
@@ -4071,7 +4211,9 @@ components:
           $ref: '#/components/schemas/Hash256'
     Hash256:
       type: string
+      maxLength: 64
       format: hex
+      example: FEDCBA9876543210FEDCBA9876543210FEDCBA9876543210FEDCBA9876543210
     HashLockEntryDTO:
       type: object
       required:
@@ -4105,6 +4247,7 @@ components:
       properties:
         id:
           type: string
+          example: 65204AB4242726662686A453
         lock:
           $ref: '#/components/schemas/HashLockEntryDTO'
     HashLockNetworkPropertiesDTO:
@@ -4113,9 +4256,11 @@ components:
         lockedFundsPerAggregate:
           type: string
           description: Amount that has to be locked per aggregate in partial cache.
+          example: 10'000'000
         maxHashLockDuration:
           type: string
           description: Maximum number of blocks for which a hash lock can exist.
+          example: 2d
     HashLockPage:
       type: object
       required:
@@ -4126,7 +4271,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HashLockInfoDTO'
-          description: Array of hash locks.
         pagination:
           $ref: '#/components/schemas/Pagination'
     HashLockTransactionDTO:
@@ -4156,10 +4300,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         maxFee:
           $ref: '#/components/schemas/Amount'
         deadline:
@@ -4176,9 +4322,11 @@ components:
     Height:
       type: string
       description: Height of the blockchain.
+      example: '1'
     Importance:
       type: string
       description: Probability of an account to harvest the next block.
+      example: '0'
     ImportanceBlockDTO:
       type: object
       required:
@@ -4216,10 +4364,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         height:
           $ref: '#/components/schemas/Height'
         timestamp:
@@ -4354,18 +4504,23 @@ components:
           allOf:
             - $ref: '#/components/schemas/MerkleTreeNodeTypeEnum'
           description: Merkle tree node type.
+          example: 0
         path:
           type: string
           description: Branch link path.
+          example: 484196B44369B764
         encodedPath:
           type: string
           description: Encoded branch link path.
+          example: 484196B44369B764
         nibbleCount:
           type: integer
           description: Nibble count.
+          example: 1
         linkMask:
           type: string
           description: Branch link bitmask.
+          example: '0000000000000000'
         links:
           type: array
           items:
@@ -4385,6 +4540,7 @@ components:
         bit:
           type: string
           description: Branch link nibble bit index (hexadecimal).
+          example: F
         link:
           allOf:
             - $ref: '#/components/schemas/Hash256'
@@ -4404,18 +4560,23 @@ components:
           allOf:
             - $ref: '#/components/schemas/MerkleTreeNodeTypeEnum'
           description: Merkle tree node type.
+          example: 255
         path:
           type: string
           description: Leaf path.
+          example: 484196B44369B764
         encodedPath:
           type: string
           description: Encoded leaf path.
+          example: 484196B44369B764
         nibbleCount:
           type: integer
           description: Nibble count.
+          example: 1
         value:
           type: string
           description: Leaf value (sha256 hash).
+          example: 484196B44369B764
         leafHash:
           allOf:
             - $ref: '#/components/schemas/Hash256'
@@ -4436,6 +4597,7 @@ components:
       description: |-
         The hex information of the complete merkle tree as returned by server api.
         More information can be found in chapter 4.3 of the catapult whitepaper.
+      example: '0000000000000000000000000000000000000000000000000000000000000000'
     MessageGroup:
       type: object
       required:
@@ -4499,18 +4661,21 @@ components:
       properties:
         id:
           type: string
+          example: 65204AB4242726662686A453
         metadataEntry:
           $ref: '#/components/schemas/MetadataEntryDTO'
     MetadataKey:
       type: string
       format: hex
       description: Metadata key scoped to source, target and type expressed.
+      example: 0A1B2C3D4E5F6789
     MetadataNetworkPropertiesDTO:
       type: object
       properties:
         maxValueSize:
           type: string
           description: Maximum metadata value size.
+          example: '1024'
     MetadataPage:
       type: object
       required:
@@ -4521,7 +4686,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/MetadataInfoDTO'
-          description: Array of metadata entries.
         pagination:
           $ref: '#/components/schemas/Pagination'
     MetadataTypeEnum:
@@ -4539,6 +4703,7 @@ components:
       type: string
       format: hex
       description: Metadata value. If embedded in a transaction, this is calculated as xor(previous-value, value).
+      example: 0A1B2C3D4E5F6789
     ModelError:
       type: object
       required:
@@ -4547,8 +4712,10 @@ components:
       properties:
         code:
           type: string
+          example: InvalidArgument
         message:
           type: string
+          example: The argument is invalid.
     Mosaic:
       type: object
       required:
@@ -4633,10 +4800,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         maxFee:
           $ref: '#/components/schemas/Amount'
         deadline:
@@ -4678,10 +4847,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         maxFee:
           $ref: '#/components/schemas/Amount'
         deadline:
@@ -4728,6 +4899,7 @@ components:
             Determines up to what decimal place the mosaic can be divided.
             Divisibility of 3 means that a mosaic can be divided into smallest parts of 0.001 mosaics.
             The divisibility must be in the range of 0 and 6.
+          example: 6
         duration:
           $ref: '#/components/schemas/BlockDuration'
     MosaicDefinitionTransactionDTO:
@@ -4758,10 +4930,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         maxFee:
           $ref: '#/components/schemas/Amount'
         deadline:
@@ -4807,6 +4981,7 @@ components:
         and from mosaic owner.
         - 0x04 (restrictable) - Mosaic supports custom restrictions configured by mosaic owner.
         - 0x08 (revokable) - Mosaic allows creator to revoke balances from another user.
+      example: 1
     MosaicGlobalRestrictionDTO:
       type: object
       required:
@@ -4892,10 +5067,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         maxFee:
           $ref: '#/components/schemas/Amount'
         deadline:
@@ -4919,6 +5096,7 @@ components:
       type: string
       format: hex
       description: Mosaic identifier.
+      example: 85BBEA6CC462B244
     MosaicInfoDTO:
       type: object
       required:
@@ -4928,6 +5106,7 @@ components:
         id:
           type: string
           description: Internal resource identifier.
+          example: 65204AB4242726662686A453
         mosaic:
           $ref: '#/components/schemas/MosaicDTO'
     MosaicMetadataTransactionDTO:
@@ -4959,10 +5138,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         maxFee:
           $ref: '#/components/schemas/Amount'
         deadline:
@@ -5002,19 +5183,24 @@ components:
         maxMosaicsPerAccount:
           type: string
           description: Maximum number of mosaics that an account can own.
+          example: '10000'
         maxMosaicDuration:
           type: string
           description: Maximum mosaic duration.
+          example: 365d
         maxMosaicDivisibility:
           type: string
           description: Maximum mosaic divisibility.
+          example: '6'
         mosaicRentalFeeSinkAddress:
           allOf:
             - $ref: '#/components/schemas/Address'
           description: Address of the mosaic rental fee sink account.
+          example: TAMESPACEWH4MKFMBCVFERDPOOP4FK7MTDJEYP35
         mosaicRentalFee:
           type: string
           description: Mosaic rental fee.
+          example: 500'000'000
     MosaicPage:
       type: object
       required:
@@ -5025,7 +5211,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/MosaicInfoDTO'
-          description: Array of mosaics.
         pagination:
           $ref: '#/components/schemas/Pagination'
     MosaicRestrictionDTO:
@@ -5078,7 +5263,6 @@ components:
             anyOf:
               - $ref: '#/components/schemas/MosaicAddressRestrictionDTO'
               - $ref: '#/components/schemas/MosaicGlobalRestrictionDTO'
-          description: Array of mosaic restrictions.
         pagination:
           $ref: '#/components/schemas/Pagination'
     MosaicSupplyChangeActionEnum:
@@ -5116,10 +5300,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         maxFee:
           $ref: '#/components/schemas/Amount'
         deadline:
@@ -5157,10 +5343,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         maxFee:
           $ref: '#/components/schemas/Amount'
         deadline:
@@ -5191,6 +5379,7 @@ components:
         level:
           type: integer
           description: Level of the multisig account.
+          example: 1
         multisigEntries:
           type: array
           items:
@@ -5230,10 +5419,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         maxFee:
           $ref: '#/components/schemas/Amount'
         deadline:
@@ -5297,12 +5488,15 @@ components:
         maxMultisigDepth:
           type: string
           description: Maximum number of multisig levels.
+          example: '3'
         maxCosignatoriesPerAccount:
           type: string
           description: Maximum number of cosignatories per account.
+          example: '25'
         maxCosignedAccountsPerAccount:
           type: string
           description: Maximum number of accounts a single account can cosign.
+          example: '25'
     NamespaceDTO:
       type: object
       required:
@@ -5358,6 +5552,7 @@ components:
       type: string
       format: hex
       description: Namespace identifier.
+      example: 84B3552D375FFA4B
     NamespaceInfoDTO:
       type: object
       required:
@@ -5411,10 +5606,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         maxFee:
           $ref: '#/components/schemas/Amount'
         deadline:
@@ -5454,34 +5651,44 @@ components:
         maxNameSize:
           type: string
           description: Maximum namespace name size.
+          example: '64'
         maxChildNamespaces:
           type: string
           description: Maximum number of children for a root namespace.
+          example: '100'
         maxNamespaceDepth:
           type: string
           description: Maximum namespace depth.
+          example: '3'
         minNamespaceDuration:
           type: string
           description: Minimum namespace duration.
+          example: 30d
         maxNamespaceDuration:
           type: string
           description: Maximum namespace duration.
+          example: 1825d
         namespaceGracePeriodDuration:
           type: string
           description: Grace period during which time only the previous owner can renew an expired namespace.
+          example: 1d
         reservedRootNamespaceNames:
           type: string
           description: Reserved root namespaces that cannot be claimed.
+          example: symbol, symbl, xym, xem, nem, user, account, org, com, biz, net, edu, mil, gov, info
         namespaceRentalFeeSinkAddress:
           allOf:
             - $ref: '#/components/schemas/Address'
           description: Address of the namespace rental fee sink account.
+          example: TDVFW6NZN3YI6O4ZRYZHGY73KADCW4HX6IDIKZI
         rootNamespaceRentalFeePerBlock:
           type: string
           description: Root namespace rental fee per block.
+          example: '2'
         childNamespaceRentalFee:
           type: string
           description: Child namespace rental fee.
+          example: '100000'
     NamespacePage:
       type: object
       required:
@@ -5492,7 +5699,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NamespaceInfoDTO'
-          description: Array of namespaces.
         pagination:
           $ref: '#/components/schemas/Pagination'
     NamespaceRegistrationTransactionDTO:
@@ -5521,10 +5727,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         maxFee:
           $ref: '#/components/schemas/Amount'
         deadline:
@@ -5569,19 +5777,23 @@ components:
         identifier:
           type: string
           description: Network identifier.
+          example: testnet
         nodeEqualityStrategy:
           $ref: '#/components/schemas/NodeIdentityEqualityStrategy'
         nemesisSignerPublicKey:
           allOf:
             - $ref: '#/components/schemas/PublicKey'
           description: Nemesis public key.
+          example: AC1A6E1D8DE5B17D2C6B1293F1E3BE85A6493C8C3971E7A09471384B966E442D
         generationHashSeed:
           allOf:
             - $ref: '#/components/schemas/Hash256'
           description: Seed for generating Nemesis generation hash.
+          example: 57F7DA205008026C776CB6AED843393F04CD458E0AA2D9F1D5F31A402072B2D6
         epochAdjustment:
           type: string
           description: Nemesis epoch time adjustment.
+          example: 1573430400s
       description: Network related configuration properties.
     NetworkTypeDTO:
       type: object
@@ -5592,9 +5804,11 @@ components:
         name:
           type: string
           description: Network name.
+          example: testnet
         description:
           type: string
           description: A short text describing the network.
+          example: Symbol Sainet Network
     NetworkTypeEnum:
       type: number
       enum:
@@ -5646,6 +5860,7 @@ components:
         version:
           type: integer
           description: Version of the application.
+          example: 16777991
         publicKey:
           $ref: '#/components/schemas/PublicKey'
         networkGenerationHashSeed:
@@ -5655,14 +5870,18 @@ components:
         port:
           type: integer
           description: Port used for the communication.
+          example: 7900
         networkIdentifier:
           type: integer
+          example: 152
         friendlyName:
           type: string
           description: Node friendly name.
+          example: mock-server
         host:
           type: string
           description: Node IP address.
+          example: 192.0.2.1
         nodePublicKey:
           $ref: '#/components/schemas/PublicKey'
     NodeKeyLinkTransactionDTO:
@@ -5690,10 +5909,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         maxFee:
           $ref: '#/components/schemas/Amount'
         deadline:
@@ -5735,8 +5956,10 @@ components:
       properties:
         pageNumber:
           type: integer
+          example: 1
         pageSize:
           type: integer
+          example: 10
     ParentPublicKeySignaturePair:
       type: object
       required:
@@ -5780,20 +6003,28 @@ components:
       description: Position relative to the proofHash being evaluated.
     ProofGamma:
       type: string
+      maxLength: 64
       format: hex
       description: 32-bytes VRF proof gamma.
+      example: A5E11CB1CC4FDB23D25552D2666B758F7A15C39388AE576007757955E332AD91
     ProofScalar:
       type: string
+      maxLength: 64
       format: hex
       description: 32-bytes VRF proof scalar.
+      example: E163D16F01F16D24EBF775357E6392C96403343B725FA78A59208A31ABA3520E
     ProofVerificationHash:
       type: string
+      maxLength: 32
       format: hex
       description: 16-bytes VRF proof verification hash.
+      example: 85DA8704C15870F9AEC80F81FE376D5F
     PublicKey:
       type: string
+      maxLength: 64
       format: hex
       description: Public key.
+      example: 0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
     ReceiptTypeEnum:
       type: number
       enum:
@@ -5910,16 +6141,17 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ResolutionStatementInfoDTO'
-          description: Array of transaction address resolution statements.
         pagination:
           $ref: '#/components/schemas/Pagination'
     RestrictionKey:
       type: string
       format: hex
       description: Restriction key.
+      example: 0A1B2C3D4E5F6789
     RestrictionValue:
       type: string
       description: Restriction value.
+      example: '1'
     RolesTypeEnum:
       type: integer
       description: |-
@@ -5936,15 +6168,19 @@ components:
         3 = Peer and Api node.
         7 = Peer, Api and Voting node.
         65 = IPv4 and Peer node.
+      example: 3
     Score:
       type: string
       description: |-
         Score of the blockchain. During synchronization, nodes try to get the
         blockchain with highest score in the network.
+      example: '1'
     Secret:
       type: string
+      maxLength: 64
       format: hex
       description: Secret.
+      example: 0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
     SecretLockEntryDTO:
       type: object
       required:
@@ -5987,6 +6223,7 @@ components:
       properties:
         id:
           type: string
+          example: 65204AB4242726662686A453
         lock:
           $ref: '#/components/schemas/SecretLockEntryDTO'
     SecretLockNetworkPropertiesDTO:
@@ -5995,12 +6232,15 @@ components:
         maxSecretLockDuration:
           type: string
           description: Maximum number of blocks for which a secret lock can exist.
+          example: 30d
         minProofSize:
           type: string
           description: Minimum size of a proof in bytes.
+          example: '1'
         maxProofSize:
           type: string
           description: Maximum size of a proof in bytes.
+          example: '1024'
     SecretLockPage:
       type: object
       required:
@@ -6011,7 +6251,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SecretLockInfoDTO'
-          description: Array of secret locks.
         pagination:
           $ref: '#/components/schemas/Pagination'
     SecretLockTransactionDTO:
@@ -6043,10 +6282,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         maxFee:
           $ref: '#/components/schemas/Amount'
         deadline:
@@ -6091,10 +6332,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         maxFee:
           $ref: '#/components/schemas/Amount'
         deadline:
@@ -6119,9 +6362,11 @@ components:
         restVersion:
           type: string
           description: catapult-rest component version.
+          example: 2.4.4
         sdkVersion:
           type: string
           description: catapult-sdk component version.
+          example: ''
         deployment:
           $ref: '#/components/schemas/DeploymentDTO'
     ServerInfoDTO:
@@ -6134,6 +6379,7 @@ components:
     Signature:
       type: string
       description: Entity's signature generated by the signer.
+      example: 0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
     SourceDTO:
       type: object
       required:
@@ -6165,6 +6411,7 @@ components:
     StateVersion:
       type: integer
       description: The version of the state
+      example: 1
     StatementMetaDTO:
       type: object
       required:
@@ -6179,6 +6426,7 @@ components:
         - numBlocks
         - numTransactions
         - numAccounts
+        - database
       properties:
         numBlocks:
           type: integer
@@ -6189,6 +6437,8 @@ components:
         numAccounts:
           type: integer
           description: Number of accounts created.
+        database:
+          $ref: '#/components/schemas/DatabaseDTO'
     SupplementalPublicKeysDTO:
       type: object
       properties:
@@ -6203,6 +6453,7 @@ components:
     Timestamp:
       type: string
       description: Number of milliseconds elapsed since the creation of the nemesis block. This value can be converted to epoch time by adding the network's 'epochAdjustment'.
+      example: '0'
     TransactionFeesDTO:
       type: object
       required:
@@ -6341,7 +6592,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TransactionInfoDTO'
-          description: Array of transactions.
         pagination:
           $ref: '#/components/schemas/Pagination'
     TransactionStatementDTO:
@@ -6390,7 +6640,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TransactionStatementInfoDTO'
-          description: Array of transaction statements.
         pagination:
           $ref: '#/components/schemas/Pagination'
     TransactionStatusDTO:
@@ -6835,6 +7084,7 @@ components:
         maxMessageSize:
           type: string
           description: Maximum transaction message size.
+          example: '1024'
     TransferTransactionDTO:
       type: object
       required:
@@ -6860,10 +7110,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         maxFee:
           $ref: '#/components/schemas/Amount'
         deadline:
@@ -6883,9 +7135,11 @@ components:
       type: integer
       format: int64
       description: A number that allows uint 32 values.
+      example: 1
     UInt64:
       type: string
       description: A number that allows uint 64 values represented with a string.
+      example: '12345'
     UnlockedAccountDTO:
       type: object
       required:
@@ -6901,6 +7155,7 @@ components:
         Address expressed in Base32 format. If the bit 0 of byte 0 is not set (like in 0x90), then it is a
         regular address. Example: TAOXUJOTTW3W5XTBQMQEX3SQNA6MCUVGXLXR3TA.
         Otherwise (e.g. 0x91) it represents a namespace id which starts at byte 1. Example: THBIMC3THGH5RUYAAAAAAAAAAAAAAAAAAAAAAAA
+      example: TAOXUJOTTW3W5XTBQMQEX3SQNA6MCUVGXLXR3TA
     UnresolvedMosaic:
       type: object
       required:
@@ -6917,10 +7172,13 @@ components:
       description: |-
         Mosaic identifier. If the most significant bit of byte 0 is set, a namespaceId (alias)
         is used instead of the real mosaic identifier.
+      example: 85BBEA6CC462B244
     VotingKey:
       type: string
+      maxLength: 64
       format: hex
       description: 32 bytes voting public key.
+      example: 0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
     VotingKeyLinkTransactionDTO:
       type: object
       required:
@@ -6948,10 +7206,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         maxFee:
           $ref: '#/components/schemas/Amount'
         deadline:
@@ -6992,10 +7252,12 @@ components:
         version:
           type: integer
           description: Entity version.
+          example: 1
         network:
           $ref: '#/components/schemas/NetworkTypeEnum'
         type:
           type: integer
+          example: 32835
         maxFee:
           $ref: '#/components/schemas/Amount'
         deadline:
@@ -7078,7 +7340,23 @@ components:
         payload:
           type: string
           description: Transaction payload in hexadecimal format.
+          example: 0123456789ABCDEF
 servers:
+  - url: https://sym-test-03.opening-line.jp:3001
+    description: TESTNET sym-test-03.opening-line.jp
+    variables: {}
+  - url: https://sym-test-01.opening-line.jp:3001
+    description: TESTNET sym-test-01.opening-line.jp
+    variables: {}
+  - url: https://sym-main-03.opening-line.jp:3001
+    description: MAINNET sym-main-03.opening-line.jp
+    variables: {}
+  - url: https://sym-main-02.opening-line.jp:3001
+    description: MAINNET sym-main-02.opening-line.jp
+    variables: {}
+  - url: https://sym-main-01.opening-line.jp:3001
+    description: MAINNET sym-main-01.opening-line.jp
+    variables: {}
   - url: http://localhost:3000
     description: Local development
     variables: {}
