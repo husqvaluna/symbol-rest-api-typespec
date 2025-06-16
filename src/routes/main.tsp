@@ -1,0 +1,15 @@
+import "./account.tsp";
+import "./block.tsp";
+import "./chain.tsp";
+import "./finalization.tsp";
+import "./network.tsp";
+import "./node.tsp";
+import "./transaction.tsp";
+import "./transaction-status.tsp";
+import "./lock.tsp";
+import "./metadata.tsp";
+import "./mosaic.tsp";
+import "./multisig.tsp";
+import "./namespace.tsp";
+import "./statement.tsp";
+import "./restriction.tsp";

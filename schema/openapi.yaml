@@ -11,19 +11,19 @@ tags:
   - name: Block routes
   - name: Chain routes
   - name: Finalization routes
-  - name: Metadata routes
-  - name: Mosaic routes
-  - name: Multisig routes
-  - name: Namespace routes
   - name: Network routes
   - name: Node routes
-  - name: Restriction Account routes
-  - name: Restriction Mosaic routes
-  - name: Receipt routes
   - name: Transaction routes
   - name: Transaction status routes
   - name: Hash Lock routes
   - name: Secret Lock routes
+  - name: Metadata routes
+  - name: Mosaic routes
+  - name: Multisig routes
+  - name: Namespace routes
+  - name: Receipt routes
+  - name: Restriction Account routes
+  - name: Restriction Mosaic routes
 paths:
   /account/{address}/multisig:
     get:
@@ -2588,7 +2588,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AccountInfoDTO'
-          description: Array of accounts.
         pagination:
           $ref: '#/components/schemas/Pagination'
     AccountRestrictionDTO:
@@ -2666,7 +2665,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AccountRestrictionsInfoDTO'
-          description: Array of account restrictions.
         pagination:
           $ref: '#/components/schemas/Pagination'
     AccountTypeEnum:
@@ -3091,7 +3089,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/BlockInfoDTO'
-          description: Array of blocks.
         pagination:
           $ref: '#/components/schemas/Pagination'
     BmTreeSignature:
@@ -4126,7 +4123,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HashLockInfoDTO'
-          description: Array of hash locks.
         pagination:
           $ref: '#/components/schemas/Pagination'
     HashLockTransactionDTO:
@@ -4521,7 +4517,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/MetadataInfoDTO'
-          description: Array of metadata entries.
         pagination:
           $ref: '#/components/schemas/Pagination'
     MetadataTypeEnum:
@@ -5025,7 +5020,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/MosaicInfoDTO'
-          description: Array of mosaics.
         pagination:
           $ref: '#/components/schemas/Pagination'
     MosaicRestrictionDTO:
@@ -5078,7 +5072,6 @@ components:
             anyOf:
               - $ref: '#/components/schemas/MosaicAddressRestrictionDTO'
               - $ref: '#/components/schemas/MosaicGlobalRestrictionDTO'
-          description: Array of mosaic restrictions.
         pagination:
           $ref: '#/components/schemas/Pagination'
     MosaicSupplyChangeActionEnum:
@@ -5492,7 +5485,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NamespaceInfoDTO'
-          description: Array of namespaces.
         pagination:
           $ref: '#/components/schemas/Pagination'
     NamespaceRegistrationTransactionDTO:
@@ -5910,7 +5902,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ResolutionStatementInfoDTO'
-          description: Array of transaction address resolution statements.
         pagination:
           $ref: '#/components/schemas/Pagination'
     RestrictionKey:
@@ -6011,7 +6002,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SecretLockInfoDTO'
-          description: Array of secret locks.
         pagination:
           $ref: '#/components/schemas/Pagination'
     SecretLockTransactionDTO:
@@ -6341,7 +6331,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TransactionInfoDTO'
-          description: Array of transactions.
         pagination:
           $ref: '#/components/schemas/Pagination'
     TransactionStatementDTO:
@@ -6390,7 +6379,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TransactionStatementInfoDTO'
-          description: Array of transaction statements.
         pagination:
           $ref: '#/components/schemas/Pagination'
     TransactionStatusDTO:
@@ -7079,6 +7067,15 @@ components:
           type: string
           description: Transaction payload in hexadecimal format.
 servers:
+  - url: https://sym-main-03.opening-line.jp:3001
+    description: sym-main-03.opening-line.jp
+    variables: {}
+  - url: https://sym-main-02.opening-line.jp:3001
+    description: sym-main-02.opening-line.jp
+    variables: {}
+  - url: https://sym-main-01.opening-line.jp:3001
+    description: sym-main-01.opening-line.jp
+    variables: {}
   - url: http://localhost:3000
     description: Local development
     variables: {}

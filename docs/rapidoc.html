@@ -2,9 +2,35 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Catapult REST API Documentation</title>
+    <meta name="keywords" content="NEM,NIS">
+    <meta property="og:title" content="Catapult REST Documentation">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Catapult REST API Documentation">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Catapult REST API Documentation",
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Catapult REST API Documentation"
+        }
+      ]
+    }
+    </script>
+    <link rel="preload" href="./openapi.yaml" as="fetch" crossorigin>
+    <link rel="preload" href="https://unpkg.com/rapidoc/dist/rapidoc-min.js" as="script">
     <script type="module" src="https://unpkg.com/rapidoc/dist/rapidoc-min.js"></script>
   </head>
   <body>
-    <rapi-doc spec-url="./openapi.yaml"></rapi-doc>
+    <rapi-doc spec-url="./openapi.yaml"
+      show-header="false"
+      theme="light"
+    >
+    </rapi-doc>
   </body>
 </html>
