@@ -11,19 +11,19 @@ tags:
   - name: Block routes
   - name: Chain routes
   - name: Finalization routes
-  - name: Metadata routes
-  - name: Mosaic routes
-  - name: Multisig routes
-  - name: Namespace routes
   - name: Network routes
   - name: Node routes
-  - name: Restriction Account routes
-  - name: Restriction Mosaic routes
-  - name: Receipt routes
   - name: Transaction routes
   - name: Transaction status routes
   - name: Hash Lock routes
   - name: Secret Lock routes
+  - name: Metadata routes
+  - name: Mosaic routes
+  - name: Multisig routes
+  - name: Namespace routes
+  - name: Receipt routes
+  - name: Restriction Account routes
+  - name: Restriction Mosaic routes
 paths:
   /account/{address}/multisig:
     get:
