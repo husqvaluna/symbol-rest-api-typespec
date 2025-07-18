@@ -31,7 +31,7 @@ paths:
       summary: Get multisig account information
       description: Returns the multisig account information.
       parameters:
-        - $ref: '#/components/parameters/Parameters.address'
+        - $ref: '#/components/parameters/Parameters.AddressParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -59,7 +59,7 @@ paths:
       summary: Get multisig account graph information
       description: Returns the multisig account graph.
       parameters:
-        - $ref: '#/components/parameters/Parameters.address'
+        - $ref: '#/components/parameters/Parameters.AddressParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -89,7 +89,7 @@ paths:
       summary: Get multisig account merkle information
       description: Returns the multisig account merkle information.
       parameters:
-        - $ref: '#/components/parameters/Parameters.address'
+        - $ref: '#/components/parameters/Parameters.AddressParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -117,12 +117,12 @@ paths:
       summary: Search accounts
       description: Gets an array of accounts.
       parameters:
-        - $ref: '#/components/parameters/Parameters.pageSizeQuery'
-        - $ref: '#/components/parameters/Parameters.pageNumberQuery'
-        - $ref: '#/components/parameters/Parameters.offsetQuery'
-        - $ref: '#/components/parameters/Parameters.orderQuery'
-        - $ref: '#/components/parameters/Parameters.orderByAccountQuery'
-        - $ref: '#/components/parameters/Parameters.mosaicIdQuery'
+        - $ref: '#/components/parameters/Parameters.PageSizeQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageNumberQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OffsetQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OrderQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OrderByAccountQueryParameter'
+        - $ref: '#/components/parameters/Parameters.MosaicIdQueryParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -178,7 +178,7 @@ paths:
       summary: Get account information
       description: Returns the account information.
       parameters:
-        - $ref: '#/components/parameters/Parameters.accountIdPath'
+        - $ref: '#/components/parameters/Parameters.AccountIdPathParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -206,7 +206,7 @@ paths:
       summary: Get account merkle information
       description: Returns the account merkle information.
       parameters:
-        - $ref: '#/components/parameters/Parameters.accountIdPath'
+        - $ref: '#/components/parameters/Parameters.AccountIdPathParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -234,13 +234,13 @@ paths:
       summary: Search blocks
       description: Gets an array of blocks.
       parameters:
-        - $ref: '#/components/parameters/Parameters.signerPublicKeyQuery'
-        - $ref: '#/components/parameters/Parameters.beneficiaryAddressQuery'
-        - $ref: '#/components/parameters/Parameters.pageSizeQuery'
-        - $ref: '#/components/parameters/Parameters.pageNumberQuery'
-        - $ref: '#/components/parameters/Parameters.offsetQuery'
-        - $ref: '#/components/parameters/Parameters.orderQuery'
-        - $ref: '#/components/parameters/Parameters.orderByBlockQuery'
+        - $ref: '#/components/parameters/Parameters.SignerPublicKeyQueryParameter'
+        - $ref: '#/components/parameters/Parameters.BeneficiaryAddressQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageSizeQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageNumberQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OffsetQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OrderQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OrderByBlockQueryParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -262,7 +262,7 @@ paths:
       summary: Get block information
       description: Gets a block from the chain that has the given height.
       parameters:
-        - $ref: '#/components/parameters/Parameters.heightPath'
+        - $ref: '#/components/parameters/Parameters.HeightPathParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -301,8 +301,8 @@ paths:
         4. Compare if the calculated proofHash equals the one recorded in the
         block header (block.receiptsHash) to verify if the statement was linked with the block.
       parameters:
-        - $ref: '#/components/parameters/Parameters.heightPath'
-        - $ref: '#/components/parameters/Parameters.receiptHashPath'
+        - $ref: '#/components/parameters/Parameters.HeightPathParameter'
+        - $ref: '#/components/parameters/Parameters.ReceiptHashPathParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -341,8 +341,8 @@ paths:
         4. Compare if the calculated proofHash equals the one recorded in the
         block header (block.transactionsHash) to verify if the transaction was included in the block.
       parameters:
-        - $ref: '#/components/parameters/Parameters.heightPath'
-        - $ref: '#/components/parameters/Parameters.transactionHashPath'
+        - $ref: '#/components/parameters/Parameters.HeightPathParameter'
+        - $ref: '#/components/parameters/Parameters.TransactionHashPathParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -426,7 +426,7 @@ paths:
       summary: Get finalization proof
       description: Gets finalization proof at the given height.
       parameters:
-        - $ref: '#/components/parameters/Parameters.heightPath'
+        - $ref: '#/components/parameters/Parameters.HeightPathParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -454,11 +454,11 @@ paths:
       summary: Search hash lock entries
       description: Returns an array of hash locks.
       parameters:
-        - $ref: '#/components/parameters/Parameters.addressQuery'
-        - $ref: '#/components/parameters/Parameters.pageSizeQuery'
-        - $ref: '#/components/parameters/Parameters.pageNumberQuery'
-        - $ref: '#/components/parameters/Parameters.offsetQuery'
-        - $ref: '#/components/parameters/Parameters.orderQuery'
+        - $ref: '#/components/parameters/Parameters.AddressQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageSizeQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageNumberQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OffsetQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OrderQueryParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -480,7 +480,7 @@ paths:
       summary: Get hash lock information
       description: Gets the hash lock for a given hash.
       parameters:
-        - $ref: '#/components/parameters/Parameters.hashPath'
+        - $ref: '#/components/parameters/Parameters.HashPathParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -502,7 +502,7 @@ paths:
       summary: Get hash lock merkle information
       description: Gets the hash lock merkle for a given hash.
       parameters:
-        - $ref: '#/components/parameters/Parameters.hashPath'
+        - $ref: '#/components/parameters/Parameters.HashPathParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -524,12 +524,12 @@ paths:
       summary: Search secret lock entries
       description: Returns an array of secret locks.
       parameters:
-        - $ref: '#/components/parameters/Parameters.addressQuery'
-        - $ref: '#/components/parameters/Parameters.secretQuery'
-        - $ref: '#/components/parameters/Parameters.pageSizeQuery'
-        - $ref: '#/components/parameters/Parameters.pageNumberQuery'
-        - $ref: '#/components/parameters/Parameters.offsetQuery'
-        - $ref: '#/components/parameters/Parameters.orderQuery'
+        - $ref: '#/components/parameters/Parameters.AddressQueryParameter'
+        - $ref: '#/components/parameters/Parameters.SecretQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageSizeQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageNumberQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OffsetQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OrderQueryParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -551,7 +551,7 @@ paths:
       summary: Get secret lock information
       description: Gets the hash lock for a given composite hash.
       parameters:
-        - $ref: '#/components/parameters/Parameters.compositeHashPath'
+        - $ref: '#/components/parameters/Parameters.CompositeHashPathParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -573,7 +573,7 @@ paths:
       summary: Get secret lock merkle information
       description: Gets the hash lock merkle for a given composite hash.
       parameters:
-        - $ref: '#/components/parameters/Parameters.compositeHashPath'
+        - $ref: '#/components/parameters/Parameters.CompositeHashPathParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -595,15 +595,15 @@ paths:
       summary: Search metadata entries
       description: Returns an array of metadata.
       parameters:
-        - $ref: '#/components/parameters/Parameters.sourceAddressQuery'
-        - $ref: '#/components/parameters/Parameters.targetAddressQuery'
-        - $ref: '#/components/parameters/Parameters.scopedMetadataKeyQuery'
-        - $ref: '#/components/parameters/Parameters.targetIdQuery'
-        - $ref: '#/components/parameters/Parameters.metadataType'
-        - $ref: '#/components/parameters/Parameters.pageSizeQuery'
-        - $ref: '#/components/parameters/Parameters.pageNumberQuery'
-        - $ref: '#/components/parameters/Parameters.offsetQuery'
-        - $ref: '#/components/parameters/Parameters.orderQuery'
+        - $ref: '#/components/parameters/Parameters.SourceAddressQueryParameter'
+        - $ref: '#/components/parameters/Parameters.TargetAddressQueryParameter'
+        - $ref: '#/components/parameters/Parameters.ScopedMetadataKeyQueryParameter'
+        - $ref: '#/components/parameters/Parameters.TargetIdQueryParameter'
+        - $ref: '#/components/parameters/Parameters.MetadataTypeParameter'
+        - $ref: '#/components/parameters/Parameters.PageSizeQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageNumberQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OffsetQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OrderQueryParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -625,7 +625,7 @@ paths:
       summary: Get metadata information
       description: Gets the metadata for a given composite hash.
       parameters:
-        - $ref: '#/components/parameters/Parameters.compositeHashPath'
+        - $ref: '#/components/parameters/Parameters.CompositeHashPathParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -647,7 +647,7 @@ paths:
       summary: Get metadata merkle information
       description: Gets the metadata merkle for a given composite hash.
       parameters:
-        - $ref: '#/components/parameters/Parameters.compositeHashPath'
+        - $ref: '#/components/parameters/Parameters.CompositeHashPathParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -669,11 +669,11 @@ paths:
       summary: Search mosaics
       description: Gets an array of mosaics.
       parameters:
-        - $ref: '#/components/parameters/Parameters.ownerAddressQuery'
-        - $ref: '#/components/parameters/Parameters.pageSizeQuery'
-        - $ref: '#/components/parameters/Parameters.pageNumberQuery'
-        - $ref: '#/components/parameters/Parameters.offsetQuery'
-        - $ref: '#/components/parameters/Parameters.orderQuery'
+        - $ref: '#/components/parameters/Parameters.OwnerAddressQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageSizeQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageNumberQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OffsetQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OrderQueryParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -729,7 +729,7 @@ paths:
       summary: Get mosaic information
       description: Gets the mosaic definition for a given mosaic identifier.
       parameters:
-        - $ref: '#/components/parameters/Parameters.mosaicIdPath'
+        - $ref: '#/components/parameters/Parameters.MosaicIdPathParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -757,7 +757,7 @@ paths:
       summary: Get mosaic merkle information
       description: Gets the mosaic definition merkle for a given mosaic identifier.
       parameters:
-        - $ref: '#/components/parameters/Parameters.mosaicIdPath'
+        - $ref: '#/components/parameters/Parameters.MosaicIdPathParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -785,14 +785,14 @@ paths:
       summary: Search namespaces
       description: Gets an array of namespaces.
       parameters:
-        - $ref: '#/components/parameters/Parameters.ownerAddressQuery'
-        - $ref: '#/components/parameters/Parameters.registrationTypeQuery'
-        - $ref: '#/components/parameters/Parameters.level0Query'
-        - $ref: '#/components/parameters/Parameters.aliasTypeQuery'
-        - $ref: '#/components/parameters/Parameters.pageSizeQuery'
-        - $ref: '#/components/parameters/Parameters.pageNumberQuery'
-        - $ref: '#/components/parameters/Parameters.offsetQuery'
-        - $ref: '#/components/parameters/Parameters.orderQuery'
+        - $ref: '#/components/parameters/Parameters.OwnerAddressQueryParameter'
+        - $ref: '#/components/parameters/Parameters.RegistrationTypeQueryParameter'
+        - $ref: '#/components/parameters/Parameters.Level0QueryParameter'
+        - $ref: '#/components/parameters/Parameters.AliasTypeQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageSizeQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageNumberQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OffsetQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OrderQueryParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -915,7 +915,7 @@ paths:
       summary: Get namespace information
       description: Gets the namespace for a given namespace identifier.
       parameters:
-        - $ref: '#/components/parameters/Parameters.namespaceIdPath'
+        - $ref: '#/components/parameters/Parameters.NamespaceIdPathParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -943,7 +943,7 @@ paths:
       summary: Get namespace merkle information
       description: Gets the namespace merkle for a given namespace identifier.
       parameters:
-        - $ref: '#/components/parameters/Parameters.namespaceIdPath'
+        - $ref: '#/components/parameters/Parameters.NamespaceIdPathParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -1164,11 +1164,11 @@ paths:
       summary: Search account restrictions
       description: Returns an array of account restrictions.
       parameters:
-        - $ref: '#/components/parameters/Parameters.addressQuery'
-        - $ref: '#/components/parameters/Parameters.pageSizeQuery'
-        - $ref: '#/components/parameters/Parameters.pageNumberQuery'
-        - $ref: '#/components/parameters/Parameters.offsetQuery'
-        - $ref: '#/components/parameters/Parameters.orderQuery'
+        - $ref: '#/components/parameters/Parameters.AddressQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageSizeQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageNumberQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OffsetQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OrderQueryParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -1196,7 +1196,7 @@ paths:
       summary: Get the account restrictions
       description: Returns the account restrictions for a given address.
       parameters:
-        - $ref: '#/components/parameters/Parameters.address'
+        - $ref: '#/components/parameters/Parameters.AddressParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -1224,7 +1224,7 @@ paths:
       summary: Get the account restrictions merkle
       description: Returns the account restrictions merkle for a given address.
       parameters:
-        - $ref: '#/components/parameters/Parameters.address'
+        - $ref: '#/components/parameters/Parameters.AddressParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -1252,13 +1252,13 @@ paths:
       summary: Search mosaic restrictions
       description: Returns an array of mosaic restrictions.
       parameters:
-        - $ref: '#/components/parameters/Parameters.mosaicIdQuery'
-        - $ref: '#/components/parameters/Parameters.entryType'
-        - $ref: '#/components/parameters/Parameters.targetAddressQuery'
-        - $ref: '#/components/parameters/Parameters.pageSizeQuery'
-        - $ref: '#/components/parameters/Parameters.pageNumberQuery'
-        - $ref: '#/components/parameters/Parameters.offsetQuery'
-        - $ref: '#/components/parameters/Parameters.orderQuery'
+        - $ref: '#/components/parameters/Parameters.MosaicIdQueryParameter'
+        - $ref: '#/components/parameters/Parameters.EntryTypeParameter'
+        - $ref: '#/components/parameters/Parameters.TargetAddressQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageSizeQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageNumberQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OffsetQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OrderQueryParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -1286,7 +1286,7 @@ paths:
       summary: Get the mosaic restrictions
       description: Returns the mosaic restrictions for a composite hash.
       parameters:
-        - $ref: '#/components/parameters/Parameters.compositeHashPath'
+        - $ref: '#/components/parameters/Parameters.CompositeHashPathParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -1314,7 +1314,7 @@ paths:
       summary: Get the mosaic restrictions merkle
       description: Returns the mosaic restrictions merkle for a given composite hash.
       parameters:
-        - $ref: '#/components/parameters/Parameters.compositeHashPath'
+        - $ref: '#/components/parameters/Parameters.CompositeHashPathParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -1342,11 +1342,11 @@ paths:
       summary: Get receipts address resolution statements
       description: Gets an array of address resolution statements.
       parameters:
-        - $ref: '#/components/parameters/Parameters.heightQuery'
-        - $ref: '#/components/parameters/Parameters.pageSizeQuery'
-        - $ref: '#/components/parameters/Parameters.pageNumberQuery'
-        - $ref: '#/components/parameters/Parameters.offsetQuery'
-        - $ref: '#/components/parameters/Parameters.orderQuery'
+        - $ref: '#/components/parameters/Parameters.HeightQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageSizeQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageNumberQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OffsetQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OrderQueryParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -1374,11 +1374,11 @@ paths:
       summary: Get receipts mosaic resolution statements
       description: Gets an array of mosaic resolution statements.
       parameters:
-        - $ref: '#/components/parameters/Parameters.heightQuery'
-        - $ref: '#/components/parameters/Parameters.pageSizeQuery'
-        - $ref: '#/components/parameters/Parameters.pageNumberQuery'
-        - $ref: '#/components/parameters/Parameters.offsetQuery'
-        - $ref: '#/components/parameters/Parameters.orderQuery'
+        - $ref: '#/components/parameters/Parameters.HeightQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageSizeQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageNumberQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OffsetQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OrderQueryParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -1406,18 +1406,18 @@ paths:
       summary: Search transaction statements
       description: Gets an array of transaction statements.
       parameters:
-        - $ref: '#/components/parameters/Parameters.heightQuery'
-        - $ref: '#/components/parameters/Parameters.fromHeightQuery'
-        - $ref: '#/components/parameters/Parameters.toHeightQuery'
-        - $ref: '#/components/parameters/Parameters.receiptTypeQuery'
-        - $ref: '#/components/parameters/Parameters.recipientAddressQuery'
-        - $ref: '#/components/parameters/Parameters.senderAddressQuery'
-        - $ref: '#/components/parameters/Parameters.targetAddressQuery'
-        - $ref: '#/components/parameters/Parameters.artifactIdQuery'
-        - $ref: '#/components/parameters/Parameters.pageSizeQuery'
-        - $ref: '#/components/parameters/Parameters.pageNumberQuery'
-        - $ref: '#/components/parameters/Parameters.offsetQuery'
-        - $ref: '#/components/parameters/Parameters.orderQuery'
+        - $ref: '#/components/parameters/Parameters.HeightQueryParameter'
+        - $ref: '#/components/parameters/Parameters.FromHeightQueryParameter'
+        - $ref: '#/components/parameters/Parameters.ToHeightQueryParameter'
+        - $ref: '#/components/parameters/Parameters.ReceiptTypeQueryParameter'
+        - $ref: '#/components/parameters/Parameters.RecipientAddressQueryParameter'
+        - $ref: '#/components/parameters/Parameters.SenderAddressQueryParameter'
+        - $ref: '#/components/parameters/Parameters.TargetAddressQueryParameter'
+        - $ref: '#/components/parameters/Parameters.ArtifactIdQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageSizeQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageNumberQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OffsetQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OrderQueryParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -1480,7 +1480,7 @@ paths:
       summary: Get transaction status
       description: Returns the transaction status for a given hash.
       parameters:
-        - $ref: '#/components/parameters/Parameters.transactionHashPath'
+        - $ref: '#/components/parameters/Parameters.TransactionHashPathParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -1549,21 +1549,21 @@ paths:
         the address that will be considered when querying is the one that
         was resolved from the alias at confirmation time.
       parameters:
-        - $ref: '#/components/parameters/Parameters.addressQuery'
-        - $ref: '#/components/parameters/Parameters.recipientAddressQuery'
-        - $ref: '#/components/parameters/Parameters.signerPublicKeyQuery'
-        - $ref: '#/components/parameters/Parameters.heightQuery'
-        - $ref: '#/components/parameters/Parameters.fromHeightQuery'
-        - $ref: '#/components/parameters/Parameters.toHeightQuery'
-        - $ref: '#/components/parameters/Parameters.fromTransferAmountQuery'
-        - $ref: '#/components/parameters/Parameters.toTransferAmountQuery'
-        - $ref: '#/components/parameters/Parameters.transactionTypeQuery'
-        - $ref: '#/components/parameters/Parameters.embedded'
-        - $ref: '#/components/parameters/Parameters.transferMosaicIdQuery'
-        - $ref: '#/components/parameters/Parameters.pageSizeQuery'
-        - $ref: '#/components/parameters/Parameters.pageNumberQuery'
-        - $ref: '#/components/parameters/Parameters.offsetQuery'
-        - $ref: '#/components/parameters/Parameters.orderQuery'
+        - $ref: '#/components/parameters/Parameters.AddressQueryParameter'
+        - $ref: '#/components/parameters/Parameters.RecipientAddressQueryParameter'
+        - $ref: '#/components/parameters/Parameters.SignerPublicKeyQueryParameter'
+        - $ref: '#/components/parameters/Parameters.HeightQueryParameter'
+        - $ref: '#/components/parameters/Parameters.FromHeightQueryParameter'
+        - $ref: '#/components/parameters/Parameters.ToHeightQueryParameter'
+        - $ref: '#/components/parameters/Parameters.FromTransferAmountQueryParameter'
+        - $ref: '#/components/parameters/Parameters.ToTransferAmountQueryParameter'
+        - $ref: '#/components/parameters/Parameters.TransactionTypeQueryParameter'
+        - $ref: '#/components/parameters/Parameters.EmbeddedParameter'
+        - $ref: '#/components/parameters/Parameters.TransferMosaicIdQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageSizeQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageNumberQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OffsetQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OrderQueryParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -1619,7 +1619,7 @@ paths:
       summary: Get confirmed transaction information
       description: Returns confirmed transaction information given a transactionId or hash.
       parameters:
-        - $ref: '#/components/parameters/Parameters.transactionIdPath'
+        - $ref: '#/components/parameters/Parameters.TransactionIdPathParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -1680,21 +1680,21 @@ paths:
       summary: Search partial transactions
       description: Returns an array of partial transactions.
       parameters:
-        - $ref: '#/components/parameters/Parameters.addressQuery'
-        - $ref: '#/components/parameters/Parameters.recipientAddressQuery'
-        - $ref: '#/components/parameters/Parameters.signerPublicKeyQuery'
-        - $ref: '#/components/parameters/Parameters.heightQuery'
-        - $ref: '#/components/parameters/Parameters.fromHeightQuery'
-        - $ref: '#/components/parameters/Parameters.toHeightQuery'
-        - $ref: '#/components/parameters/Parameters.fromTransferAmountQuery'
-        - $ref: '#/components/parameters/Parameters.toTransferAmountQuery'
-        - $ref: '#/components/parameters/Parameters.transactionTypeQuery'
-        - $ref: '#/components/parameters/Parameters.embedded'
-        - $ref: '#/components/parameters/Parameters.transferMosaicIdQuery'
-        - $ref: '#/components/parameters/Parameters.pageSizeQuery'
-        - $ref: '#/components/parameters/Parameters.pageNumberQuery'
-        - $ref: '#/components/parameters/Parameters.offsetQuery'
-        - $ref: '#/components/parameters/Parameters.orderQuery'
+        - $ref: '#/components/parameters/Parameters.AddressQueryParameter'
+        - $ref: '#/components/parameters/Parameters.RecipientAddressQueryParameter'
+        - $ref: '#/components/parameters/Parameters.SignerPublicKeyQueryParameter'
+        - $ref: '#/components/parameters/Parameters.HeightQueryParameter'
+        - $ref: '#/components/parameters/Parameters.FromHeightQueryParameter'
+        - $ref: '#/components/parameters/Parameters.ToHeightQueryParameter'
+        - $ref: '#/components/parameters/Parameters.FromTransferAmountQueryParameter'
+        - $ref: '#/components/parameters/Parameters.ToTransferAmountQueryParameter'
+        - $ref: '#/components/parameters/Parameters.TransactionTypeQueryParameter'
+        - $ref: '#/components/parameters/Parameters.EmbeddedParameter'
+        - $ref: '#/components/parameters/Parameters.TransferMosaicIdQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageSizeQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageNumberQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OffsetQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OrderQueryParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -1782,7 +1782,7 @@ paths:
       summary: Get partial transaction information
       description: Returns partial transaction information given a transactionId or hash.
       parameters:
-        - $ref: '#/components/parameters/Parameters.transactionIdPath'
+        - $ref: '#/components/parameters/Parameters.TransactionIdPathParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -1810,21 +1810,21 @@ paths:
       summary: Search unconfirmed transactions
       description: Returns an array of unconfirmed transactions.
       parameters:
-        - $ref: '#/components/parameters/Parameters.addressQuery'
-        - $ref: '#/components/parameters/Parameters.recipientAddressQuery'
-        - $ref: '#/components/parameters/Parameters.signerPublicKeyQuery'
-        - $ref: '#/components/parameters/Parameters.heightQuery'
-        - $ref: '#/components/parameters/Parameters.fromHeightQuery'
-        - $ref: '#/components/parameters/Parameters.toHeightQuery'
-        - $ref: '#/components/parameters/Parameters.fromTransferAmountQuery'
-        - $ref: '#/components/parameters/Parameters.toTransferAmountQuery'
-        - $ref: '#/components/parameters/Parameters.transactionTypeQuery'
-        - $ref: '#/components/parameters/Parameters.embedded'
-        - $ref: '#/components/parameters/Parameters.transferMosaicIdQuery'
-        - $ref: '#/components/parameters/Parameters.pageSizeQuery'
-        - $ref: '#/components/parameters/Parameters.pageNumberQuery'
-        - $ref: '#/components/parameters/Parameters.offsetQuery'
-        - $ref: '#/components/parameters/Parameters.orderQuery'
+        - $ref: '#/components/parameters/Parameters.AddressQueryParameter'
+        - $ref: '#/components/parameters/Parameters.RecipientAddressQueryParameter'
+        - $ref: '#/components/parameters/Parameters.SignerPublicKeyQueryParameter'
+        - $ref: '#/components/parameters/Parameters.HeightQueryParameter'
+        - $ref: '#/components/parameters/Parameters.FromHeightQueryParameter'
+        - $ref: '#/components/parameters/Parameters.ToHeightQueryParameter'
+        - $ref: '#/components/parameters/Parameters.FromTransferAmountQueryParameter'
+        - $ref: '#/components/parameters/Parameters.ToTransferAmountQueryParameter'
+        - $ref: '#/components/parameters/Parameters.TransactionTypeQueryParameter'
+        - $ref: '#/components/parameters/Parameters.EmbeddedParameter'
+        - $ref: '#/components/parameters/Parameters.TransferMosaicIdQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageSizeQueryParameter'
+        - $ref: '#/components/parameters/Parameters.PageNumberQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OffsetQueryParameter'
+        - $ref: '#/components/parameters/Parameters.OrderQueryParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -1880,7 +1880,7 @@ paths:
       summary: Get unconfirmed transaction information
       description: Returns unconfirmed transaction information given a transactionId or hash.
       parameters:
-        - $ref: '#/components/parameters/Parameters.transactionIdPath'
+        - $ref: '#/components/parameters/Parameters.TransactionIdPathParameter'
       responses:
         '200':
           description: The request has succeeded.
@@ -1904,21 +1904,21 @@ paths:
         - Transaction routes
 components:
   parameters:
-    Parameters.accountIdPath:
+    Parameters.AccountIdPathParameter:
       name: accountId
       in: path
       required: true
       description: Account public key or address encoded using a 32-character set.
       schema:
         type: string
-    Parameters.address:
+    Parameters.AddressParameter:
       name: address
       in: path
       required: true
       description: Account address.
       schema:
         $ref: '#/components/schemas/Address'
-    Parameters.addressQuery:
+    Parameters.AddressQueryParameter:
       name: address
       in: query
       required: false
@@ -1929,35 +1929,35 @@ components:
         This filter cannot be combined with ``recipientAddress`` and ``signerPublicKey`` query params.
       schema:
         $ref: '#/components/schemas/Address'
-    Parameters.aliasTypeQuery:
+    Parameters.AliasTypeQueryParameter:
       name: aliasType
       in: query
       required: false
       description: Filter by alias type.
       schema:
         $ref: '#/components/schemas/AliasTypeEnum'
-    Parameters.artifactIdQuery:
+    Parameters.ArtifactIdQueryParameter:
       name: artifactId
       in: query
       required: false
       description: Mosaic or namespace identifier
       schema:
         type: string
-    Parameters.beneficiaryAddressQuery:
+    Parameters.BeneficiaryAddressQueryParameter:
       name: beneficiaryAddress
       in: query
       required: false
       description: Filter by beneficiary address.
       schema:
         $ref: '#/components/schemas/Address'
-    Parameters.compositeHashPath:
+    Parameters.CompositeHashPathParameter:
       name: compositeHash
       in: path
       required: true
       description: Filter by composite hash.
       schema:
         $ref: '#/components/schemas/Hash256'
-    Parameters.embedded:
+    Parameters.EmbeddedParameter:
       name: embedded
       in: query
       required: false
@@ -1970,21 +1970,21 @@ components:
         other parameters like ``recipientAddress`` instead.
       schema:
         type: boolean
-    Parameters.entryType:
+    Parameters.EntryTypeParameter:
       name: entryType
       in: query
       required: false
       description: Filter by entry type.
       schema:
         $ref: '#/components/schemas/MosaicRestrictionEntryTypeEnum'
-    Parameters.fromHeightQuery:
+    Parameters.FromHeightQueryParameter:
       name: fromHeight
       in: query
       required: false
       description: Only blocks with height greater or equal than this one are returned.
       schema:
         $ref: '#/components/schemas/Height'
-    Parameters.fromTransferAmountQuery:
+    Parameters.FromTransferAmountQueryParameter:
       name: fromTransferAmount
       in: query
       required: false
@@ -1993,63 +1993,63 @@ components:
         Only transfer transactions with a transfer amount of the provided mosaic id, greater or equal than this amount are returned.
       schema:
         $ref: '#/components/schemas/Amount'
-    Parameters.hashPath:
+    Parameters.HashPathParameter:
       name: hash
       in: path
       required: true
       description: Filter by hash.
       schema:
         $ref: '#/components/schemas/Hash256'
-    Parameters.heightPath:
+    Parameters.HeightPathParameter:
       name: height
       in: path
       required: true
       description: Block height.
       schema:
         $ref: '#/components/schemas/Height'
-    Parameters.heightQuery:
+    Parameters.HeightQueryParameter:
       name: height
       in: query
       required: false
       description: Filter by block height.
       schema:
         $ref: '#/components/schemas/Height'
-    Parameters.level0Query:
+    Parameters.Level0QueryParameter:
       name: level0
       in: query
       required: false
       description: Filter by root namespace.
       schema:
         $ref: '#/components/schemas/NamespaceId'
-    Parameters.metadataType:
+    Parameters.MetadataTypeParameter:
       name: metadataType
       in: query
       required: false
       description: Filter by metadata type.
       schema:
         $ref: '#/components/schemas/MetadataTypeEnum'
-    Parameters.mosaicIdPath:
+    Parameters.MosaicIdPathParameter:
       name: mosaicId
       in: path
       required: true
       description: Mosaic identifier.
       schema:
         $ref: '#/components/schemas/MosaicId'
-    Parameters.mosaicIdQuery:
+    Parameters.MosaicIdQueryParameter:
       name: mosaicId
       in: query
       required: false
       description: Filter by mosaic identifier.
       schema:
         $ref: '#/components/schemas/MosaicId'
-    Parameters.namespaceIdPath:
+    Parameters.NamespaceIdPathParameter:
       name: namespaceId
       in: path
       required: true
       description: Namespace identifier.
       schema:
         $ref: '#/components/schemas/NamespaceId'
-    Parameters.offsetQuery:
+    Parameters.OffsetQueryParameter:
       name: offset
       in: query
       required: false
@@ -2059,7 +2059,7 @@ components:
         Otherwise, newer elements with respect to the id are returned.
       schema:
         type: string
-    Parameters.orderByAccountQuery:
+    Parameters.OrderByAccountQueryParameter:
       name: orderBy
       in: query
       required: false
@@ -2068,14 +2068,14 @@ components:
         If ``balance`` option is selected, the request must define the ``mosaicId`` filter.
       schema:
         $ref: '#/components/schemas/AccountOrderByEnum'
-    Parameters.orderByBlockQuery:
+    Parameters.OrderByBlockQueryParameter:
       name: orderBy
       in: query
       required: false
       description: Sort responses by the property set.
       schema:
         $ref: '#/components/schemas/BlockOrderByEnum'
-    Parameters.orderQuery:
+    Parameters.OrderQueryParameter:
       name: order
       in: query
       required: false
@@ -2084,14 +2084,14 @@ components:
         If the request does not specify ``orderBy``, REST returns the collection ordered by id.
       schema:
         $ref: '#/components/schemas/Order'
-    Parameters.ownerAddressQuery:
+    Parameters.OwnerAddressQueryParameter:
       name: ownerAddress
       in: query
       required: false
       description: Filter by owner address.
       schema:
         $ref: '#/components/schemas/Address'
-    Parameters.pageNumberQuery:
+    Parameters.PageNumberQueryParameter:
       name: pageNumber
       in: query
       required: false
@@ -2100,7 +2100,7 @@ components:
         type: integer
         minimum: 1
         default: 1
-    Parameters.pageSizeQuery:
+    Parameters.PageSizeQueryParameter:
       name: pageSize
       in: query
       required: false
@@ -2110,14 +2110,14 @@ components:
         minimum: 10
         maximum: 100
         default: 10
-    Parameters.receiptHashPath:
+    Parameters.ReceiptHashPathParameter:
       name: hash
       in: path
       required: true
       description: Receipt hash.
       schema:
         $ref: '#/components/schemas/Hash256'
-    Parameters.receiptTypeQuery:
+    Parameters.ReceiptTypeQueryParameter:
       name: receiptType
       in: query
       required: false
@@ -2128,63 +2128,63 @@ components:
         type: array
         items:
           $ref: '#/components/schemas/ReceiptTypeEnum'
-    Parameters.recipientAddressQuery:
+    Parameters.RecipientAddressQueryParameter:
       name: recipientAddress
       in: query
       required: false
       description: Filter by address of the account receiving the transaction.
       schema:
         $ref: '#/components/schemas/Address'
-    Parameters.registrationTypeQuery:
+    Parameters.RegistrationTypeQueryParameter:
       name: registrationType
       in: query
       required: false
       description: Filter by registration type.
       schema:
         $ref: '#/components/schemas/NamespaceRegistrationTypeEnum'
-    Parameters.scopedMetadataKeyQuery:
+    Parameters.ScopedMetadataKeyQueryParameter:
       name: scopedMetadataKey
       in: query
       required: false
       description: Filter by metadata key.
       schema:
         $ref: '#/components/schemas/MetadataKey'
-    Parameters.secretQuery:
+    Parameters.SecretQueryParameter:
       name: secret
       in: query
       required: false
       description: Filter by secret.
       schema:
         $ref: '#/components/schemas/Secret'
-    Parameters.senderAddressQuery:
+    Parameters.SenderAddressQueryParameter:
       name: senderAddress
       in: query
       required: false
       description: Filter by address sending mosaics.
       schema:
         $ref: '#/components/schemas/Address'
-    Parameters.signerPublicKeyQuery:
+    Parameters.SignerPublicKeyQueryParameter:
       name: signerPublicKey
       in: query
       required: false
       description: Filter by public key of the account signing the entity.
       schema:
         $ref: '#/components/schemas/PublicKey'
-    Parameters.sourceAddressQuery:
+    Parameters.SourceAddressQueryParameter:
       name: sourceAddress
       in: query
       required: false
       description: Filter by address sending the metadata entry.
       schema:
         $ref: '#/components/schemas/Address'
-    Parameters.targetAddressQuery:
+    Parameters.TargetAddressQueryParameter:
       name: targetAddress
       in: query
       required: false
       description: Filter by target address.
       schema:
         $ref: '#/components/schemas/Address'
-    Parameters.targetIdQuery:
+    Parameters.TargetIdQueryParameter:
       name: targetId
       in: query
       required: false
@@ -2192,14 +2192,14 @@ components:
       schema:
         type: string
         format: hex
-    Parameters.toHeightQuery:
+    Parameters.ToHeightQueryParameter:
       name: toHeight
       in: query
       required: false
       description: Only blocks with height smaller or equal than this one are returned.
       schema:
         $ref: '#/components/schemas/Height'
-    Parameters.toTransferAmountQuery:
+    Parameters.ToTransferAmountQueryParameter:
       name: toTransferAmount
       in: query
       required: false
@@ -2208,21 +2208,21 @@ components:
         Only transfer transactions with a transfer amount of the provided mosaic id, lesser or equal than this amount are returned.
       schema:
         $ref: '#/components/schemas/Amount'
-    Parameters.transactionHashPath:
+    Parameters.TransactionHashPathParameter:
       name: hash
       in: path
       required: true
       description: Transaction hash.
       schema:
         $ref: '#/components/schemas/Hash256'
-    Parameters.transactionIdPath:
+    Parameters.TransactionIdPathParameter:
       name: transactionId
       in: path
       required: true
       description: Transaction id or hash.
       schema:
         type: string
-    Parameters.transactionTypeQuery:
+    Parameters.TransactionTypeQueryParameter:
       name: type
       in: query
       required: false
@@ -2233,7 +2233,7 @@ components:
         type: array
         items:
           $ref: '#/components/schemas/TransactionTypeEnum'
-    Parameters.transferMosaicIdQuery:
+    Parameters.TransferMosaicIdQueryParameter:
       name: transferMosaicId
       in: query
       required: false
@@ -2588,7 +2588,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AccountInfoDTO'
-          description: Array of accounts.
         pagination:
           $ref: '#/components/schemas/Pagination'
     AccountRestrictionDTO:
@@ -2666,7 +2665,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/AccountRestrictionsInfoDTO'
-          description: Array of account restrictions.
         pagination:
           $ref: '#/components/schemas/Pagination'
     AccountTypeEnum:
@@ -3091,7 +3089,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/BlockInfoDTO'
-          description: Array of blocks.
         pagination:
           $ref: '#/components/schemas/Pagination'
     BmTreeSignature:
@@ -4126,7 +4123,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HashLockInfoDTO'
-          description: Array of hash locks.
         pagination:
           $ref: '#/components/schemas/Pagination'
     HashLockTransactionDTO:
@@ -4521,7 +4517,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/MetadataInfoDTO'
-          description: Array of metadata entries.
         pagination:
           $ref: '#/components/schemas/Pagination'
     MetadataTypeEnum:
@@ -5025,7 +5020,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/MosaicInfoDTO'
-          description: Array of mosaics.
         pagination:
           $ref: '#/components/schemas/Pagination'
     MosaicRestrictionDTO:
@@ -5078,7 +5072,6 @@ components:
             anyOf:
               - $ref: '#/components/schemas/MosaicAddressRestrictionDTO'
               - $ref: '#/components/schemas/MosaicGlobalRestrictionDTO'
-          description: Array of mosaic restrictions.
         pagination:
           $ref: '#/components/schemas/Pagination'
     MosaicSupplyChangeActionEnum:
@@ -5492,7 +5485,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/NamespaceInfoDTO'
-          description: Array of namespaces.
         pagination:
           $ref: '#/components/schemas/Pagination'
     NamespaceRegistrationTransactionDTO:
@@ -5910,7 +5902,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ResolutionStatementInfoDTO'
-          description: Array of transaction address resolution statements.
         pagination:
           $ref: '#/components/schemas/Pagination'
     RestrictionKey:
@@ -6011,7 +6002,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SecretLockInfoDTO'
-          description: Array of secret locks.
         pagination:
           $ref: '#/components/schemas/Pagination'
     SecretLockTransactionDTO:
@@ -6341,7 +6331,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TransactionInfoDTO'
-          description: Array of transactions.
         pagination:
           $ref: '#/components/schemas/Pagination'
     TransactionStatementDTO:
@@ -6390,7 +6379,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TransactionStatementInfoDTO'
-          description: Array of transaction statements.
         pagination:
           $ref: '#/components/schemas/Pagination'
     TransactionStatusDTO:
