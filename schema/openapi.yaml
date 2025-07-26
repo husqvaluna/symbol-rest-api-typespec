@@ -7067,14 +7067,20 @@ components:
           type: string
           description: Transaction payload in hexadecimal format.
 servers:
+  - url: https://sym-test-03.opening-line.jp:3001
+    description: TESTNET sym-test-03.opening-line.jp
+    variables: {}
+  - url: https://sym-test-01.opening-line.jp:3001
+    description: TESTNET sym-test-01.opening-line.jp
+    variables: {}
   - url: https://sym-main-03.opening-line.jp:3001
-    description: sym-main-03.opening-line.jp
+    description: MAINNET sym-main-03.opening-line.jp
     variables: {}
   - url: https://sym-main-02.opening-line.jp:3001
-    description: sym-main-02.opening-line.jp
+    description: MAINNET sym-main-02.opening-line.jp
     variables: {}
   - url: https://sym-main-01.opening-line.jp:3001
-    description: sym-main-01.opening-line.jp
+    description: MAINNET sym-main-01.opening-line.jp
     variables: {}
   - url: http://localhost:3000
     description: Local development

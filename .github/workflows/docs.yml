@@ -28,13 +28,14 @@ jobs:
         run: npm run emit
 
       - name: Build documentation
-        run: npm run docs -- --templateOptions.specOrSpecUrl=openapi.yaml
+        run: npm run docs
+        # run: npm run docs -- --templateOptions.specOrSpecUrl=openapi.yaml
 
-      - name: Copy schema to dist
-        run: cp schema/openapi.yaml dist/
+      # - name: Copy schema to dist
+      #   run: cp schema/openapi.yaml dist/
 
-      - name: Overwrite by Rapidoc
-        run: cp docs/rapidoc.html dist/index.html
+      # - name: Overwrite by Rapidoc
+      #   run: cp docs/rapidoc.html dist/index.html
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4

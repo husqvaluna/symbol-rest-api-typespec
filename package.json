@@ -7,7 +7,8 @@
     "emit": "tsp compile src/main.tsp",
     "lint": "npx @redocly/cli lint schema/openapi.yaml --skip-rule security-defined --skip-rule operation-2xx-response --skip-rule operation-4xx-response",
     "preview": "npx @redocly/cli preview-docs schema/openapi.yaml",
-    "docs": "npx @redocly/cli build-docs schema/openapi.yaml --output=dist/index.html"
+    "docs": "mkdir dist; npx openapi-generate-html --input=schema/openapi.yaml --output=dist/index.html --ui=stoplight --title='Catapult REST Endpoints'",
+    "docs:redocly": "npx @redocly/cli build-docs schema/openapi.yaml --output=dist/index.html"
   },
   "peerDependencies": {
     "@typespec/compiler": "latest",
