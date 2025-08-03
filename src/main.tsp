@@ -1,6 +1,5 @@
 import "@typespec/http";
 import "@typespec/openapi";
-import "@typespec/openapi3";
 
 import "./models";
 import "./routes";

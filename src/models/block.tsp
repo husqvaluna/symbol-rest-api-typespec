@@ -46,11 +46,7 @@ model BlockDTO {
 }
 
 model BlockInfoDTO {
-  /**
-   * Internal resource identifier.
-   */
-  @example("67CA9E5B1F221298E20D97CB")
-  id: string;
+  id: ID;
 
   meta: BlockMetaDTO;
   block: BlockDTO | ImportanceBlockDTO;

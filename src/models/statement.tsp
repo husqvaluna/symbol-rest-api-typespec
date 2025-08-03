@@ -80,10 +80,7 @@ model ResolutionStatementDTO {
  *
  */
 model ResolutionStatementInfoDTO {
-  /**
-   * Internal resource identifier.
-   */
-  id: string;
+  id: ID;
 
   meta: StatementMetaDTO;
   statement: ResolutionStatementDTO;
@@ -136,10 +133,7 @@ model TransactionStatementDTO {
  * Collection of receipts related to a transaction.
  */
 model TransactionStatementInfoDTO {
-  /**
-   * Internal resource identifier.
-   */
-  id: string;
+  id: ID;
 
   meta: StatementMetaDTO;
   statement: TransactionStatementDTO;

@@ -40,10 +40,7 @@ model MosaicsNamesDTO {
 }
 
 model NamespaceInfoDTO {
-  /**
-   * Internal resource identifier.
-   */
-  id: string;
+  id: ID;
 
   meta: NamespaceMetaDTO;
   `namespace`: NamespaceDTO;

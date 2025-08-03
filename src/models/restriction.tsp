@@ -30,10 +30,7 @@ model AccountRestrictionNetworkPropertiesDTO {
 }
 
 model MosaicAddressRestrictionDTO {
-  /**
-   * Internal resource identifier.
-   */
-  id: string;
+  id: ID;
 
   mosaicRestrictionEntry: MosaicAddressRestrictionEntryWrapperDTO;
 }
@@ -57,10 +54,7 @@ model MosaicAddressRestrictionEntryWrapperDTO {
 }
 
 model MosaicGlobalRestrictionDTO {
-  /**
-   * Internal resource identifier.
-   */
-  id: string;
+  id: ID;
 
   mosaicRestrictionEntry: MosaicGlobalRestrictionEntryWrapperDTO;
 }

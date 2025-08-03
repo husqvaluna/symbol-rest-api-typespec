@@ -3,52 +3,36 @@ import "@typespec/openapi";
 
 using Http;
 
-/**
- * Address encoded using a 32-character set.
- */
+@doc("Address encoded using a 32-character set.")
 @maxLength(48)
 @example("9889432DE263BB8FE88444A4DA28D3609BD8BB8FAE18AE95")
 scalar Address extends string;
 
-/**
- * Absolute amount. An amount of 123456789 (absolute) for a mosaic with divisibility 6 means 123.456789 (relative).
- */
+@doc("Absolute amount. An amount of 123456789 (absolute) for a mosaic with divisibility 6 means 123.456789 (relative).")
 @example("0")
 scalar Amount extends string;
 
-/**
- * Duration expressed in number of blocks.
- */
+@doc("Duration expressed in number of blocks.")
 @example("100")
 scalar BlockDuration extends string;
 
-/**
- * Fee multiplier applied to transactions contained in block.
- */
+@doc("Fee multiplier applied to transactions contained in block.")
 @example(0)
 scalar BlockFeeMultiplier extends int64;
 
-/**
- * Cosignature version.
- */
+@doc("Cosignature version.")
 @example("0")
 scalar CosignatureVersion extends string;
 
-/**
- * Determines how hard is to harvest a new block, based on previous blocks.
- */
+@doc("Determines how hard is to harvest a new block, based on previous blocks.")
 @example("100000000000000")
 scalar Difficulty extends string;
 
-/**
- * Finalization Epoch
- */
+@doc("Finalization Epoch")
 @example(1)
 scalar FinalizationEpoch extends int64;
 
-/**
- * Finalization point
- */
+@doc("Finalization point")
 @example(1)
 scalar FinalizationPoint extends int64;
 
@@ -57,179 +41,143 @@ scalar FinalizationPoint extends int64;
 @example("FEDCBA9876543210FEDCBA9876543210FEDCBA9876543210FEDCBA9876543210")
 scalar Hash256 extends string;
 
-/**
- * Height of the blockchain.
- */
+@doc("Internal resource identifier.")
+@example("67CA9E5B1F221298E20D97CB")
+scalar ID extends string;
+
+@doc("Height of the blockchain.")
 @example("1")
 scalar Height extends string;
 
-/**
- * Finalized height of the blockchain.
- */
+@doc("Finalized height of the blockchain.")
 @example("1")
 scalar FinalizedHeight extends Height;
 
-/**
- * Probability of an account to harvest the next block.
- */
+@doc("Probability of an account to harvest the next block.")
 @example("0")
 scalar Importance extends string;
 
-/**
- * Metadata key scoped to source, target and type expressed.
- */
+@doc("Metadata key scoped to source, target and type expressed.")
 @format("hex")
 @example("0A1B2C3D4E5F6789")
 scalar MetadataKey extends string;
 
-/**
- * Metadata value. If embedded in a transaction, this is calculated as xor(previous-value, value).
- */
+@doc("Metadata value. If embedded in a transaction, this is calculated as xor(previous-value, value).")
 @format("hex")
 @example("0A1B2C3D4E5F6789")
 scalar MetadataValue extends string;
 
-/**
- * Mosaic identifier.
- */
+@doc("Mosaic identifier.")
 @format("hex")
 @example("85BBEA6CC462B244")
 scalar MosaicId extends string;
 
-/**
- * The hex information of the complete merkle tree as returned by server api.
- * More information can be found in chapter 4.3 of the catapult whitepaper.
- */
+@doc("""
+The hex information of the complete merkle tree as returned by server api.
+More information can be found in chapter 4.3 of the catapult whitepaper.
+""")
 @format("hex")
 @example("0000000000000000000000000000000000000000000000000000000000000000")
 scalar MerkleTreeRaw extends string;
 
-/**
- * Restriction key.
- */
+@doc("Restriction key.")
 @format("hex")
 @example("0A1B2C3D4E5F6789")
 scalar RestrictionKey extends string;
 
-/**
- * Namespace identifier.
- */
+@doc("Namespace identifier.")
 @format("hex")
 @example("84B3552D375FFA4B")
 scalar NamespaceId extends string;
 
-/**
- * Public key.
- */
+@doc("Public key.")
 @format("hex")
 @maxLength(64)
 @example("0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF")
 scalar PublicKey extends string;
 
-/**
- * 32-bytes VRF proof gamma.
- */
+@doc("32-bytes VRF proof gamma.")
 @format("hex")
 @maxLength(64)
 @example("A5E11CB1CC4FDB23D25552D2666B758F7A15C39388AE576007757955E332AD91")
 scalar ProofGamma extends string;
 
-/**
- * 32-bytes VRF proof scalar.
- */
+@doc("32-bytes VRF proof scalar.")
 @format("hex")
 @maxLength(64)
 @example("E163D16F01F16D24EBF775357E6392C96403343B725FA78A59208A31ABA3520E")
 scalar ProofScalar extends string;
 
-/**
- * 16-bytes VRF proof verification hash.
- */
+@doc("16-bytes VRF proof verification hash.")
 @format("hex")
 @maxLength(32)
 @example("85DA8704C15870F9AEC80F81FE376D5F")
 scalar ProofVerificationHash extends string;
 
-/**
- * Score of the blockchain. During synchronization, nodes try to get the
- * blockchain with highest score in the network.
- */
+@doc("""
+Score of the blockchain. During synchronization, nodes try to get the
+blockchain with highest score in the network.
+""")
 @example("1")
 scalar Score extends string;
 
-/**
- * Secret.
- */
+@doc("Secret.")
 @format("hex")
 @maxLength(64)
 @example("0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF")
 scalar Secret extends string;
 
-/**
- * Entity's signature generated by the signer.
- */
+@doc("Entity's signature generated by the signer.")
 @example("0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF")
 scalar Signature extends string;
 
-/**
- * The version of the state
- */
+@doc("The version of the state")
 @example(1)
 scalar StateVersion extends integer;
 
-/**
- * Number of milliseconds elapsed since the creation of the nemesis block. This value can be converted to epoch time by adding the network's 'epochAdjustment'.
- */
+@doc("Number of milliseconds elapsed since the creation of the nemesis block. This value can be converted to epoch time by adding the network's 'epochAdjustment'.")
 @example("0")
 scalar Timestamp extends string;
 
-/**
- * A number that allows uint 32 values.
- */
+@doc("A number that allows uint 32 values.")
 @example(1)
 scalar UInt32 extends int64;
 
-/**
- * A number that allows uint 64 values represented with a string.
- */
+@doc("A number that allows uint 64 values represented with a string.")
 @example("12345")
 scalar UInt64 extends string;
 
-/**
- * Address expressed in Base32 format. If the bit 0 of byte 0 is not set (like in 0x90), then it is a
- * regular address. Example: TAOXUJOTTW3W5XTBQMQEX3SQNA6MCUVGXLXR3TA.
- * Otherwise (e.g. 0x91) it represents a namespace id which starts at byte 1. Example: THBIMC3THGH5RUYAAAAAAAAAAAAAAAAAAAAAAAA
- */
+@doc("""
+Address expressed in Base32 format. If the bit 0 of byte 0 is not set (like in 0x90), then it is a
+regular address. Example: TAOXUJOTTW3W5XTBQMQEX3SQNA6MCUVGXLXR3TA.
+Otherwise (e.g. 0x91) it represents a namespace id which starts at byte 1. Example: THBIMC3THGH5RUYAAAAAAAAAAAAAAAAAAAAAAAA
+""")
 @example("TAOXUJOTTW3W5XTBQMQEX3SQNA6MCUVGXLXR3TA")
 scalar UnresolvedAddress extends string;
 
-/**
- * Mosaic identifier. If the most significant bit of byte 0 is set, a namespaceId (alias)
- * is used instead of the real mosaic identifier.
- */
+@doc("""
+Mosaic identifier. If the most significant bit of byte 0 is set, a namespaceId (alias)
+is used instead of the real mosaic identifier.
+""")
 @format("hex")
 @example("85BBEA6CC462B244")
 scalar UnresolvedMosaicId extends string;
 
-/**
- * 32 bytes voting public key.
- */
+@doc("32 bytes voting public key.")
 @format("hex")
 @maxLength(64)
 @example("0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF")
 scalar VotingKey extends string;
 
-/**
- * Restriction value.
- */
+@doc("Restriction value.")
 @example("1")
 scalar RestrictionValue extends string;
 
-/**
- * Indicates how to sort the results:
- * * ``asc`` - ascending
- * * ``desc`` - descending
- */
+@doc("""
+Indicates how to sort the results:
+* ``asc`` - ascending
+* ``desc`` - descending
+""")
 enum Order {
   asc,
   desc,
@@ -245,23 +193,20 @@ enum BlockOrderByEnum {
   height,
 }
 
-/**
- * Position relative to the proofHash being evaluated.
- */
+@doc("Position relative to the proofHash being evaluated.")
 enum PositionEnum {
   left,
   right,
 }
 
-/**
- * A transaction could be classified in the following groups:
- * * Unconfirmed: The transaction reached the P2P network.
- *     At this point, it is not guaranteed that the transaction will be included in a block.
- * * Confirmed: The transaction is included in a block.
- * * Partial: The transaction requires to be cosigned by other transaction participants in order to be included in a block.
- * * Failed: The transaction did not pass the network validation, and it was rejected.
- *
- */
+@doc("""
+A transaction could be classified in the following groups:
+* Unconfirmed: The transaction reached the P2P network.
+At this point, it is not guaranteed that the transaction will be included in a block.
+* Confirmed: The transaction is included in a block.
+* Partial: The transaction requires to be cosigned by other transaction participants in order to be included in a block.
+* Failed: The transaction did not pass the network validation, and it was rejected.
+""")
 enum TransactionGroupEnum {
   unconfirmed,
   confirmed,

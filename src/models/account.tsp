@@ -23,11 +23,8 @@ model AccountDTO {
 }
 
 model AccountInfoDTO {
-  /**
-   * Internal resource identifier.
-   */
   @example("65204AB4242726662686A453")
-  id: string;
+  id: ID;
 
   account: AccountDTO;
 }
@@ -40,19 +37,13 @@ model AccountInfoDTO {
 model ActivityBucketDTO {
   startHeight: Height;
 
-  /**
-   * Fees paid by the account for this bucket.
-   */
+  @doc("Fees paid by the account for this bucket.")
   totalFeesPaid: Amount;
 
-  /**
-   * Number of times the account has been a beneficiary for this bucket.
-   */
+  @doc("Number of times the account has been a beneficiary for this bucket.")
   beneficiaryCount: UInt32;
 
-  /**
-   * Importance score for this bucket. This is taken into account to calculate the latest account importance.
-   */
+  @doc("Importance score for this bucket. This is taken into account to calculate the latest account importance.")
   rawScore: Importance;
 }
 
@@ -83,15 +74,11 @@ model SupplementalPublicKeysDTO {
  * Chain related configuration properties.
  */
 model ChainPropertiesDTO {
-  /**
-   * Set to true if block chain should calculate state hashes so that state is fully verifiable at each block.
-   */
+  @doc("Set to true if block chain should calculate state hashes so that state is fully verifiable at each block.")
   @example(true)
   enableVerifiableState?: boolean;
 
-  /**
-   * Set to true if block chain should calculate receipts so that state changes are fully verifiable at each block.
-   */
+  @doc("Set to true if block chain should calculate receipts so that state changes are fully verifiable at each block.")
   @example(true)
   enableVerifiableReceipts?: boolean;
 
@@ -276,9 +263,7 @@ model NetworkPropertiesDTO {
   @example("57F7DA205008026C776CB6AED843393F04CD458E0AA2D9F1D5F31A402072B2D6")
   generationHashSeed?: Hash256;
 
-  /**
-   * Nemesis epoch time adjustment.
-   */
+  @doc("Nemesis epoch time adjustment.")
   @example("1573430400s")
   epochAdjustment?: string;
 }

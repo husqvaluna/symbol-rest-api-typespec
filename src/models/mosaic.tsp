@@ -40,11 +40,7 @@ model MosaicDTO {
 }
 
 model MosaicInfoDTO {
-  /**
-   * Internal resource identifier.
-   */
-  @example("65204AB4242726662686A453")
-  id: string;
+  id: ID;
 
   mosaic: MosaicDTO;
 }

@@ -18,7 +18,7 @@ model MetadataEntryDTO {
 
 model MetadataInfoDTO {
   @example("65204AB4242726662686A453")
-  id: string;
+  id: ID;
   metadataEntry: MetadataEntryDTO;
 }
 

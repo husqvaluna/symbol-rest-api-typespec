@@ -1,5 +1,3 @@
-import "@typespec/http";
-
 import "../types/core.tsp";
 import "../models";
 import "../parameters.tsp";

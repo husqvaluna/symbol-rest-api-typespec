@@ -6,61 +6,46 @@ using Http;
 
 namespace Parameters {
   model address {
-    /**
-     * Account address.
-     */
+    @doc("Account address.")
     @path address: Address;
   }
 
   model accountIdPath {
-    /**
-     * Account public key or address encoded using a 32-character set.
-     */
+    @doc("Account public key or address encoded using a 32-character set.")
     @path accountId: string;
   }
 
   model hashPath {
-    /**
-     * Filter by hash.
-     */
+    @doc("Filter by hash.")
     @path hash: Hash256;
   }
 
   model compositeHashPath {
-    /**
-     * Filter by composite hash.
-     */
+    @doc("Filter by composite hash.")
     @path compositeHash: Hash256;
   }
 
   model heightPath {
-    /**
-     * Block height.
-     */
+    @doc("Block height.")
     @path height: Height;
   }
 
   model limitPath {
-    /**
-     * Number of elements to be returned.
-     * The limit should be greater than or equal to "db.pageSizeMin" and not higher than "db.pageSizeMax".
-     * The settings are adjustable via the configuration file (rest/resources/rest.json) per REST instance.
-     *
-     */
+    @doc("""
+Number of elements to be returned.
+The limit should be greater than or equal to "db.pageSizeMin" and not higher than "db.pageSizeMax".
+The settings are adjustable via the configuration file (rest/resources/rest.json) per REST instance.
+""")
     @path limit: integer;
   }
 
   model mosaicIdPath {
-    /**
-     * Mosaic identifier.
-     */
+    @doc("Mosaic identifier.")
     @path mosaicId: MosaicId;
   }
 
   model namespaceIdPath {
-    /**
-     * Namespace identifier.
-     */
+    @doc("Namespace identifier.")
     @path namespaceId: NamespaceId;
   }
 

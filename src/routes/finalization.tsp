@@ -1,5 +1,3 @@
-import "@typespec/http";
-
 import "../types/core.tsp";
 import "../models";
 import "../parameters.tsp";
@@ -16,9 +14,7 @@ namespace Catapult.Finalization {
     @summary("Get finalization proof")
     @doc("Gets finalization proof for the greatest height associated with the given epoch.")
     op getFinalizationProofAtEpoch(
-      /**
-       * Finalization epoch.
-       */
+      @doc("Finalization epoch.")
       @path epoch: FinalizationEpoch,
     ): FinalizationProofDTO | (NotFoundResponse & ModelError) | (ConflictResponse & ModelError);
 

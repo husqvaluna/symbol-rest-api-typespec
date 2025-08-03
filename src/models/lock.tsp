@@ -13,7 +13,7 @@ model HashLockEntryDTO {
 
 model HashLockInfoDTO {
   @example("65204AB4242726662686A453")
-  id: string;
+  id: ID;
   lock: HashLockEntryDTO;
 }
 
@@ -48,7 +48,7 @@ model SecretLockEntryDTO {
 
 model SecretLockInfoDTO {
   @example("65204AB4242726662686A453")
-  id: string;
+  id: ID;
   lock: SecretLockEntryDTO;
 }
 

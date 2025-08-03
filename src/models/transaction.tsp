@@ -621,10 +621,7 @@ model EmbeddedTransactionDTO {
 }
 
 model EmbeddedTransactionInfoDTO {
-  /**
-   * Internal resource identifier.
-   */
-  id: string;
+  id: ID;
 
   meta: EmbeddedTransactionMetaDTO;
   transaction:
@@ -686,10 +683,7 @@ model TransactionDTO {
 }
 
 model TransactionInfoDTO {
-  /**
-   * Internal resource identifier.
-   */
-  id: string;
+  id: ID;
 
   meta: TransactionMetaDTO | EmbeddedTransactionMetaDTO;
   transaction:

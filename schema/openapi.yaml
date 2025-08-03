@@ -2339,8 +2339,8 @@ components:
         - account
       properties:
         id:
-          type: string
-          description: Internal resource identifier.
+          allOf:
+            - $ref: '#/components/schemas/ID'
           example: 65204AB4242726662686A453
         account:
           $ref: '#/components/schemas/AccountDTO'
@@ -3059,9 +3059,7 @@ components:
         - block
       properties:
         id:
-          type: string
-          description: Internal resource identifier.
-          example: 67CA9E5B1F221298E20D97CB
+          $ref: '#/components/schemas/ID'
         meta:
           $ref: '#/components/schemas/BlockMetaDTO'
         block:
@@ -4021,8 +4019,7 @@ components:
         - transaction
       properties:
         id:
-          type: string
-          description: Internal resource identifier.
+          $ref: '#/components/schemas/ID'
         meta:
           $ref: '#/components/schemas/EmbeddedTransactionMetaDTO'
         transaction:
@@ -4246,7 +4243,8 @@ components:
         - lock
       properties:
         id:
-          type: string
+          allOf:
+            - $ref: '#/components/schemas/ID'
           example: 65204AB4242726662686A453
         lock:
           $ref: '#/components/schemas/HashLockEntryDTO'
@@ -4323,6 +4321,10 @@ components:
       type: string
       description: Height of the blockchain.
       example: '1'
+    ID:
+      type: string
+      description: Internal resource identifier.
+      example: 67CA9E5B1F221298E20D97CB
     Importance:
       type: string
       description: Probability of an account to harvest the next block.
@@ -4660,7 +4662,8 @@ components:
         - metadataEntry
       properties:
         id:
-          type: string
+          allOf:
+            - $ref: '#/components/schemas/ID'
           example: 65204AB4242726662686A453
         metadataEntry:
           $ref: '#/components/schemas/MetadataEntryDTO'
@@ -4733,8 +4736,7 @@ components:
         - mosaicRestrictionEntry
       properties:
         id:
-          type: string
-          description: Internal resource identifier.
+          $ref: '#/components/schemas/ID'
         mosaicRestrictionEntry:
           $ref: '#/components/schemas/MosaicAddressRestrictionEntryWrapperDTO'
     MosaicAddressRestrictionEntryDTO:
@@ -4989,8 +4991,7 @@ components:
         - mosaicRestrictionEntry
       properties:
         id:
-          type: string
-          description: Internal resource identifier.
+          $ref: '#/components/schemas/ID'
         mosaicRestrictionEntry:
           $ref: '#/components/schemas/MosaicGlobalRestrictionEntryWrapperDTO'
     MosaicGlobalRestrictionEntryDTO:
@@ -5104,9 +5105,7 @@ components:
         - mosaic
       properties:
         id:
-          type: string
-          description: Internal resource identifier.
-          example: 65204AB4242726662686A453
+          $ref: '#/components/schemas/ID'
         mosaic:
           $ref: '#/components/schemas/MosaicDTO'
     MosaicMetadataTransactionDTO:
@@ -5561,8 +5560,7 @@ components:
         - namespace
       properties:
         id:
-          type: string
-          description: Internal resource identifier.
+          $ref: '#/components/schemas/ID'
         meta:
           $ref: '#/components/schemas/NamespaceMetaDTO'
         namespace:
@@ -6122,8 +6120,7 @@ components:
         - statement
       properties:
         id:
-          type: string
-          description: Internal resource identifier.
+          $ref: '#/components/schemas/ID'
         meta:
           $ref: '#/components/schemas/StatementMetaDTO'
         statement:
@@ -6222,7 +6219,8 @@ components:
         - lock
       properties:
         id:
-          type: string
+          allOf:
+            - $ref: '#/components/schemas/ID'
           example: 65204AB4242726662686A453
         lock:
           $ref: '#/components/schemas/SecretLockEntryDTO'
@@ -6505,8 +6503,7 @@ components:
         - transaction
       properties:
         id:
-          type: string
-          description: Internal resource identifier.
+          $ref: '#/components/schemas/ID'
         meta:
           anyOf:
             - $ref: '#/components/schemas/TransactionMetaDTO'
@@ -6623,8 +6620,7 @@ components:
         - statement
       properties:
         id:
-          type: string
-          description: Internal resource identifier.
+          $ref: '#/components/schemas/ID'
         meta:
           $ref: '#/components/schemas/StatementMetaDTO'
         statement:
